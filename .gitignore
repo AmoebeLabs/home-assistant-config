@@ -1,0 +1,23 @@
+*
+
+!.gitignore
+
+!lovelace
+!lovelace/fhs_sys_templates/
+!lovelace/fhs_sys_templates/**
+
+!lovelace/sak_templates/
+!lovelace/sak_templates/**
+
+!lovelace/decluttering_templates/
+!lovelace/decluttering_templates/**
+
+!lovelace/views/
+!lovelace/views/fhs-demo-views/
+!lovelace/views/fhs-demo-views/**
+
+# Ignore old and deprecated stuff
+*.yaml-old
+*.yml-old
+*.yaml-saved
+*.yml-saved

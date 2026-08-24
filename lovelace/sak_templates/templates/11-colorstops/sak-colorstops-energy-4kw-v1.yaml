@@ -1,0 +1,22 @@
+sak_colorstops_energy_4kw_v1:
+  template:
+    type: colorstops
+    defaults:
+      - sak_colorstops_gap: 1
+      - sak_colorstops_fill: true
+      - sak_colorstops_stroke: false
+  colorstops:
+    gap: '[[sak_colorstops_gap]]'
+    fill: '[[sak_colorstops_fill]]'
+    stroke: '[[sak_colorstops_stroke]]'
+    colors:
+      0.0: 'darkgreen'
+      0.150: 'green'
+      0.300: '#FFE37F'  # Yasmine
+      0.500: '#FCC449'  # Saffron
+      1.000: '#F79F23'  # Orange Peel
+      1.500: '#EF7F01'  # Tangerine
+      2.000: '#E73F10'  # Cinnabar
+      2.500: '#BB1B1B'  # Cornell Red
+      3.000: '#980C0C'  # Pennu Red
+      4.000: '#7B0002'  # Barn Red  

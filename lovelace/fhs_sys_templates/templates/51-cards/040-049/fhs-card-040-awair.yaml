@@ -1,0 +1,286 @@
+fhs_card_040_awair:
+  template:
+    type: card
+    defaults: 
+      - fhs_card_awair_background_icon_disabled: false
+
+  card:
+    constants:
+      sensor_cy: 75.5
+      sensor_dxpos: 17.5
+
+    layout:
+      aspectratio: 1/1
+      groups:
+        # ------------------------------------------------------------
+        - id: area-name
+          xpos: 7.5
+          ypos: 45
+
+        # ------------------------------------------------------------
+        - id: circle-with-icon
+          xpos: 20
+          ypos: 20
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-temp
+          xpos: 15
+          ypos: calc(sensor_cy)
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-humi
+          same_as: graph-sensor-temp
+          same_as_dxpos: 17.5
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-co2
+          same_as: graph-sensor-humi
+          same_as_dxpos: 17.5
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-voc
+          same_as: graph-sensor-co2
+          same_as_dxpos: 17.5
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-pm25
+          same_as: graph-sensor-voc
+          same_as_dxpos: 17.5
+
+        - id: state-rectex
+          xpos: 75
+          ypos: 20
+
+      icons:
+        # ------------------------------------------------------------
+        - id: background-icon
+          xpos: 100
+          yposc: 37.5
+          align: center
+          icon_size: 6 #50
+          entity_index: 0
+          styles:
+            fill: var(--theme-sys-elevation-surface-neutral3)
+
+        # ------------------------------------------------------------
+        - id: circle-with-icon
+          group: circle-with-icon
+          xpos: 50
+          yposc: 50
+          align: center
+          icon_size: 1.8 #15
+          entity_index: 0
+          styles:
+            fill: var(--primary-background-color)
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-temp
+          group: graph-sensor-temp
+          xpos: 50
+          yposc: 66
+          align: center
+          icon_size: 0.9 #7.5
+          entity_index: 1
+          styles:
+            fill: var(--primary-text-color)
+            opacity: 0.5
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-humi
+          group: graph-sensor-humi
+          same_as: graph-sensor-temp
+          same_as_dentity_index: 1
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-co2
+          group: graph-sensor-co2
+          same_as: graph-sensor-humi
+          same_as_dentity_index: 1
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-voc
+          group: graph-sensor-voc
+          same_as: graph-sensor-co2
+          same_as_dentity_index: 1
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-pm25
+          group: graph-sensor-pm25
+          same_as: graph-sensor-voc
+          same_as_dentity_index: 1
+          icon: mdi:dots-hexagon
+
+      sparklines:
+        # ------------------------------------------------------------
+        - id: graph-sensor-temp
+          group: graph-sensor-temp
+          xpos: 50
+          ypos: 50
+          width: 10
+          height: 20
+          entity_index: 1
+          entity_indexes:
+            - entity_index: 1
+          period:
+            type: real_time
+            real_time: true
+          sparkline:
+            animate: true
+            show:
+              chart_type: graded
+              chart_variant: rank_order
+            state_values:
+              aggregate_func: last
+            graded:
+              line_width : 1.5
+              background:
+                styles:
+                  transition: fill 2s ease
+                  rx: 10%
+                  ry: 50%
+                  stroke-width: 1.25
+              foreground:
+                styles:
+                  transition: fill 2s ease
+                  rx: 10%
+                  ry: 50%
+                  stroke-width: 0
+            colorstops_transition: hard
+            color_stops:
+              template:
+                name: fhs_colorstops_awair_temperature
+
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-humi
+          same_as: graph-sensor-temp
+          same_as_replace:
+            - sparkline.color_stops
+          group: graph-sensor-humi
+          entity_index: 2
+          sparkline:
+            color_stops:
+              template:
+                name: fhs_colorstops_awair_humidity
+        # ------------------------------------------------------------
+        - id: graph-sensor-co2
+          same_as: graph-sensor-temp
+          same_as_replace:
+            - sparkline.color_stops
+          group: graph-sensor-co2
+          entity_index: 3
+          sparkline:
+            color_stops:
+              template:
+                name: fhs_colorstops_awair_co2
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-voc
+          same_as: graph-sensor-temp
+          same_as_replace:
+            - sparkline.color_stops
+          group: graph-sensor-voc
+          entity_index: 4
+          sparkline:
+            color_stops:
+              template:
+                name: fhs_colorstops_awair_voc
+
+        # ------------------------------------------------------------
+        - id: graph-sensor-pm25
+          same_as: graph-sensor-temp
+          same_as_replace:
+            - sparkline.color_stops
+          group: graph-sensor-pm25
+          entity_index: 5
+          sparkline:
+            color_stops:
+              template:
+                name: fhs_colorstops_awair_pm25
+
+      circles:
+        - id: circle-with-icon
+          group: circle-with-icon
+          xpos: 50
+          ypos: 50
+          radius_percent: 8
+          entity_index: 0
+          color_stops:
+            template: 
+              name: fhs_colorstops_awair_score
+          show:
+            item_style: colorstopsegments
+          colorstopsegments:
+            fill: true
+            stroke: false
+          styles:
+              stroke-width: 0.5em    #2em
+      horseshoes:
+        - id: score
+          group: circle-with-icon
+          entity_index: 0
+          xpos: 50
+          ypos: 50
+          radius: 10
+          arc_degrees: 360
+          flip: both
+          horseshoe_state:
+            width: 4
+            linecap: butt
+          horseshoe_scale:
+            min: 0
+            max: 100
+            width: 4
+            styles:
+              opacity: 0.6
+          color_stops:
+            template: 
+              name: fhs_colorstops_awair_score
+          show:
+            horseshoe_style: colorstop
+            scale_style: colorstop #colorstop #fixed
+
+      areas:
+        # ------------------------------------------------------------
+        - id: area-name
+          group: area-name
+          xpos: 50
+          ypos: 50
+          entity_index: 0
+          ellipsis: 12
+          styles: 
+            text-anchor: start
+            font-size: 1.45em # 12
+            font-weight: 700
+            opacity: 1
+
+      names:
+        # ------------------------------------------------------------
+        - id: area-name
+          group: area-name
+          xpos: 50
+          ypos: 62.5
+          entity_index: 0
+          ellipsis: 16
+          styles: 
+            text-anchor: start
+            font-size: 1.2em # 10
+            font-weight: 400
+            opacity: 0.6
+
+      states:
+        - id: state-rectex
+          group: state-rectex
+          xpos: 50
+          ypos: 50
+          entity_index: 0
+          show: 
+            uom: none
+          styles:
+            font-size: 1.8em # 15em
+            text-anchor: middle
+            font-weight: 700
+            alignment-baseline: central
+          uom:
+            styles:
+              font-weight: 600

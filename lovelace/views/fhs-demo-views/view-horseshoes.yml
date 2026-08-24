@@ -1,0 +1,442 @@
+# This is the horseshoes view
+#
+title: FHS-horseshoes
+path: FHS-horseshoes
+panel: false
+type: sections
+max_columns: 2
+
+sections:
+- type: grid
+  title: Power Horseshoes 020 - 030
+  cards:
+
+    # Example 20::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':20:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_020_horseshoe_power
+
+    # Example 21::
+    #
+    #######################################################################                
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 0
+          unit: W
+          name: ':21v2: Solar'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 0
+          unit: W
+          name: PV1
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 0
+          unit: W
+          name: PV2
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: V
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: V
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: A
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: A
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: kWh
+          name: Production
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 1
+          unit: kWh
+          name: Remaining
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: kWh
+          name: Total production
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          unit: kWh
+          name: Tomorrow
+      template:
+        name: fhs_card_021_horseshoe_solar
+
+    # Example 22::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':22v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_022_horseshoe_power
+
+
+    # Example 23::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':23v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_023_horseshoe_power
+
+    # Example 24::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':24v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_024_horseshoe_power
+    # Example 25::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':25v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_025_horseshoe_power
+
+    # Example 26::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':26v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_026_horseshoe_power
+
+    # Example 27::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':27v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_027_horseshoe_power
+
+    # Example 28::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':28v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_028_horseshoe_power
+
+    # Example 29::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':29v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_029_horseshoe_power
+
+- type: grid
+  title: Power Horseshoes 030 -- 040
+  cards:
+
+    # Example 30::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          name: 'Total'
+          area: ':30v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+      template:
+        name: fhs_card_030_horseshoe_power
+
+
+    # Example 31::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':31v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_031_horseshoe_power
+
+    # Example 32::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':32v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+          area: 'Electricity'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_032_horseshoe_power
+    # Example 33::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Electricity'
+          area: ':33v2:'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_033_horseshoe_power
+
+    # Example 34::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.kleenex_pollen_radar_zoefdehaas_bomen_niveau
+          area: ':34v2:'
+          name: 'Trees'
+          # format:
+          #   raw_state_keep: true
+        - entity: sensor.kleenex_pollen_radar_zoefdehaas_gras_niveau
+          name: 'Grass'
+          area: 'Kleenex Pollen'
+        - entity: sensor.kleenex_pollen_radar_zoefdehaas_kruiden_niveau
+          name: 'Weed'
+      template:
+        name: fhs_card_034_horseshoe_pollen
+
+    # Example 35::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Electricity'
+          area: ':35v2:'
+          icon: url(/local/images/tomorrow/pollen_grass_high.svg)
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          decimals: 2
+          name: 'L1'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          decimals: 2
+          name: 'L2'
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          decimals: 2
+          name: 'L3'
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+      template:
+        name: fhs_card_035_horseshoe_power

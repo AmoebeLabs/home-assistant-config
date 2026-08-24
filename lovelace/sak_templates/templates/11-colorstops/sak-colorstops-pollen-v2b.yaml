@@ -1,0 +1,22 @@
+# For pollen levels, the colorstops are based on the Kleenex pollen radar levels, which are as follows:
+sak_colorstops_pollen_v2b:
+  template:
+    type: colorstops
+    defaults:
+      - dummy: 0
+  colorstops:
+    scales:
+      default:
+        min: 0
+        max: 3.2
+    colors:
+      - value: -1
+        color: '#848484'
+      - value: 0.01
+        color: '#ffe99d'
+      - value: 1.01
+        color: '#fcc449'
+      - value: 2.01
+        color: '#f79f23'
+      - value: 3.01
+        color: '#ef7f01'

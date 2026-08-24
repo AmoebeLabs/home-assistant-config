@@ -1,0 +1,249 @@
+fhs_card_055_horseshoe_pollen:
+  template:
+    type: card
+  card:
+    aspectratio: 3/1.2
+
+    constants:
+      radius0: 38 #36
+      xpos0: 50
+      dxPos1: 100
+      dxPos2: 100
+      arcsUpperArcDegrees: 210
+
+    layout:
+      gradients:
+        blue-radial:  # Not used
+          type: radial
+          cx: 50
+          cy: 35
+          r: 65
+          stops:
+            - offset: 0
+              color: '#e3f2fd'
+            - offset: 45
+              color: '#42a5f5'
+            - offset: 100
+              color: '#0d47a1'
+
+        red-linear:
+          type: linear
+          x1: 0
+          y1: 0
+          x2: 100
+          y2: 0
+          stops:
+            - offset: 0
+              color: red #'#ffcdd2'
+            - offset: 100
+              color: blue #'#b71c1c'
+
+        black-linear:
+          type: linear
+          x1: 0
+          y1: 0
+          x2: 0
+          y2: 100
+          stops:
+            - offset: 0
+              color: var(--disabled-text-color)
+            - offset: 90
+              color: var(--primary-background-color)
+              # color: red
+
+      arcs:
+        - id: upperhalf_0
+          xpos: calc(xpos0)
+          ypos: 70
+          radius: calc(radius0 - 10)
+          arc_degrees: calc(arcsUpperArcDegrees)
+          styles:
+            fill: gradient(black-linear)
+            fill-opacity: 0.9
+            stroke-opacity: 0.3
+            stroke-width: 1
+            stroke: gray
+        - id: upperhalf_1
+          same_as: upperhalf_0
+          same_as_dxpos: calc(dxPos1)
+        - same_as: upperhalf_1
+          same_as_dxpos: calc(dxPos2)
+
+        - id: lowerhalf_0
+          xpos: calc(xpos0)
+          ypos: 70
+          radius: calc(radius0 - 10)
+          arc_degrees: calc(360 - arcsUpperArcDegrees - 10)
+          flip: y
+          styles:
+            stroke-opacity: 0.3
+            stroke-width: 1
+            stroke: gray
+        - id: lowerhalf_1
+          same_as: lowerhalf_0
+          same_as_dxpos: calc(dxPos1)
+        - same_as: lowerhalf_1
+          same_as_dxpos: calc(dxPos2)
+      areas:
+        - entity_index: 0
+          xpos: 0
+          ypos: 120
+          styles:
+            - font-size: 0.75em
+            - text-transform: none     
+            - text-anchor: start                       
+        - entity_index: 1
+          xpos: 150
+          ypos: 10
+          styles:
+            - font-size: 1.7em
+            - text-transform: none     
+      icons:
+        - id: tree
+          entity_index: 0
+          xpos: calc(xpos0)
+          yposc: 60
+          size: 4.5
+          state_map:
+            map:
+              - state: default
+                icon: |
+                  [[[
+                    return `url(/local/images/kleenex/pollen_${item.id}_${state}.svg)`;
+                  ]]]
+
+        - id: grass
+          entity_index: 1
+          xpos: calc(xpos0)
+          same_as: tree
+          same_as_dxpos: calc(dxPos1)
+
+        - id: weed
+          entity_index: 2
+          same_as: grass
+          same_as_dxpos: calc(dxPos2)
+      hlines:
+        - xpos: 150
+          ypos: 15
+          length: 80
+          styles:
+            - stroke: var(--disabled-text-color);
+
+      names:
+        - entity_index: 0
+          xpos: calc(xpos0)
+          ypos: 90
+          styles:
+            - font-size: 1.5em
+            - text-transform: none     
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)
+
+      horseshoes:
+        - entity_index: 0
+          debug_state_map: false
+          xpos: calc(xpos0)
+          ypos: 70
+          radius: calc(radius0)
+          tickmarks_radius: calc(radius0)
+          arc_degrees: 360
+          flip: both
+          
+          show:
+            horseshoe: true
+            scale_tickmarks: false
+            horseshoe_style: colorstop
+            scale_style: colorstopsegments #fixed
+            labels_at: stringstate #none #ticks_major # colorstop, none, ticks_major, both, minmax
+            ticks: false #true
+            label_badges: false #true
+            label_background: none # none, fixed, colorstop
+          # 
+          horseshoe_scale:
+            min: 0
+            max: 4
+            width: 27 #25
+            gap: 0
+            linecap: butt
+            color_filter:
+              grayscale:
+                min: 0.2
+                max: 0.6
+          
+            styles:
+              opacity: 0.3
+          #
+          horseshoe_tickmarks:
+            ticks_major:
+              ticksize: 1
+              color_mode: colorstop
+              width: 12
+              offset: -9
+              thickness: 3
+              styles:
+                - stroke: var(--primary-text-color)
+                - fill: var(--primary-text-color)
+                - opacity: 0.7
+          #
+          horseshoe_labels:
+            debug_labels: false
+            distance_min: 0.3
+            ticksize_min: 0.3
+            # ellipsis: 5
+            orientation: arc #horizontal #arc #horizontal #arc
+            offset: 0 #-34
+            stringstate_level:
+                before:
+                  styles:
+                    - fill: var(--primary-background-color)
+                    - opacity: 0.6
+                current:
+                  styles:
+                    - fill: var(--primary-background-color)
+                    - font-weight: bold
+                after:
+                  styles:
+                    - opacity: 0.35
+                state_map:
+                  map:
+                    - state: very_high
+                      label: Very High #Zeer Hoog
+                      current:
+                        styles:
+                          - fill: var(--primary-text-color)
+            styles:
+              - font-size: 1.2em
+              - opacity: 1
+              - color: var(--primary-text-color)
+              - font-weight: normal
+          #
+          horseshoe_state:
+            mode: stringstate_level
+            debug_state_map: false
+            width: 27 #33
+            linecap: butt
+            styles:
+              - stroke-linecap: butt
+          #
+          color_stops:
+            gap: 2
+            colors:
+              - state: 'low'
+                color: '#838383'
+              - state: 'moderate'
+                color: '#fcc449'
+              - state: 'high'
+                color: '#ed8003'
+              - state: 'very_high'
+                color: '#e73f10'
+
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)

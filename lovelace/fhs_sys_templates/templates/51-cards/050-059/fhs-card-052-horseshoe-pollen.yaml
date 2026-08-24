@@ -1,0 +1,177 @@
+fhs_card_052_horseshoe_pollen:
+  template:
+    type: card
+  card:
+    aspectratio: 3/1
+    constants:
+      radius0: 36
+      xpos0: 50
+      dxPos1: 100
+      dxPos2: 100
+      pollen_tree_map:
+        map:
+          - state: default
+            icon: |
+              [[[
+                return `url(/local/images/kleenex/pollen_tree_${state}.svg)`;
+              ]]]
+      pollen_grass_map:
+        map:
+          - state: default
+            icon: |
+              [[[
+                return `url(/local/images/kleenex/pollen_grass_${state}.svg)`;
+              ]]]
+
+    layout:
+      areas:
+        - entity_index: 0
+          xpos: 0
+          ypos: 100
+          styles:
+            - font-size: 0.75em
+            - text-transform: none     
+            - text-anchor: start                       
+        - entity_index: 1
+          xpos: 150
+          ypos: 10
+          styles:
+            - font-size: 1.7em
+            - text-transform: none     
+      icons:
+        - id: tree
+          entity_index: 0
+          xpos: calc(xpos0)
+          ypos: 70
+          size: 4.5
+          state_map:
+            map:
+              - state: default
+                icon: |
+                  [[[
+                    return `url(/local/images/kleenex/pollen_${item.id}_${state}.svg)`;
+                  ]]]
+
+        - id: grass
+          entity_index: 1
+          xpos: calc(xpos0)
+          same_as: tree
+          same_as_dxpos: calc(dxPos1)
+
+        - id: weed
+          entity_index: 2
+          same_as: grass
+          same_as_dxpos: calc(dxPos2)
+
+      hlines:
+        - xpos: 150
+          ypos: 15
+          length: 80
+          styles:
+            - stroke: var(--disabled-text-color);
+
+      names:
+        - entity_index: 0
+          xpos: calc(xpos0)
+          ypos: 90
+          styles:
+            - font-size: 1.5em
+            - text-transform: none     
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)
+
+
+      horseshoes:
+        - entity_index: 0
+          debug_state_map: false
+          xpos: calc(xpos0)
+          ypos: 70
+          radius: calc(radius0)
+          tickmarks_radius: calc(radius0)
+          arc_degrees: 260
+          
+          show:
+            horseshoe: true
+            scale_tickmarks: false
+            horseshoe_style: colorstop
+            scale_style: colorstopsegments #fixed
+            labels_at: stringstate #none #ticks_major # colorstop, none, ticks_major, both, minmax
+            ticks: false #true
+            label_badges: false #true
+            label_background: none # none, fixed, colorstop
+          # 
+          horseshoe_scale:
+            min: 0
+            max: 4
+            width: 25
+            color: gray #var(--primary-background-color)
+            gap: 0
+            linecap: butt
+            styles:
+              opacity: 0.3
+              filter: grayscale(1) contrast(0.5)
+          #
+          horseshoe_tickmarks:
+            ticks_major:
+              ticksize: 1
+              color_mode: colorstop
+              width: 12
+              offset: -9
+              thickness: 3
+              styles:
+                - stroke: var(--primary-text-color)
+                - fill: var(--primary-text-color)
+                - opacity: 0.7
+          #
+          horseshoe_labels:
+            distance_min: 0.3
+            ticksize_min: 0.3
+            orientation: arc #horizontal #arc #horizontal #arc
+            offset: 0 #-34
+            stringstate_mode:
+              state_map:
+                map:
+                  - state: very_high
+                    label: Very High #Zeer Hoog
+                  - state: moderate
+                    current:
+                      styles:
+                        - fill: var(--primary-background-color)
+            styles:
+              - font-size: 1.2em
+              - opacity: 1
+              - color: var(--primary-text-color)
+              - font-weight: bold
+          #
+          horseshoe_state:
+            mode: stringstate_mode      # Single state active
+            debug_state_map: false
+            width: 33
+            linecap: butt
+            styles:
+              - stroke-linecap: butt
+          #
+          color_stops:
+            gap: 2
+            colors:
+              - state: 'low'
+                color: '#838383'
+              - state: 'moderate'
+                color: '#fcc449'
+              - state: 'high'
+                color: '#ed8003'
+              - state: 'very_high'
+                color: '#e73f10'
+          #     # 3: var(--pollen-color--very-high, --pollen_tree-color--very-high)
+
+
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)

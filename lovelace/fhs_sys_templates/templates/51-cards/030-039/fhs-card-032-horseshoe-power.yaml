@@ -1,0 +1,172 @@
+fhs_card_032_horseshoe_power:
+  template:
+    type: card
+  card:
+
+
+    # styles:
+    #   - filter: padding 0
+    #   - overflow: hidden
+    palettes:
+      rainbow: /local/palettes/rainbow-palette-new.json  
+    constants:
+      radius0: 5000
+      xpos0: 20
+      ypos0: 25
+      dxPos1: 25
+      dxPos2: 21
+    layout:
+      areas:
+        - entity_index: 0
+          xpos: 0
+          ypos: 100
+          styles:
+            - font-size: 0.75em
+            - text-transform: none     
+            - text-anchor: start                       
+        - entity_index: 1
+          xpos: 50
+          ypos: 8
+          styles:
+            - font-size: 1.7em
+            - text-transform: none     
+      states:
+        - entity_index: 0
+          xpos: calc(xpos0)
+          ypos: 85
+          styles:
+            - font-size: 1.0em
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)
+        - entity_index: 3
+          same_as: 2
+          same_as_dxpos: calc(dxPos2)
+
+      names:
+        - entity_index: 0
+          xpos: calc(xpos0)
+          ypos: 95
+          styles:
+            - font-size: 1.0em
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)
+        - entity_index: 3
+          same_as: 2
+          same_as_dxpos: calc(dxPos2)
+
+      horseshoes_v2:
+        - entity_index: 0
+          ypos: 45
+          xpos: calc(-radius0 + ypos0)
+          radius: calc(radius0)
+          rotate: -90
+          tickmarks_radius: 43
+          arc_degrees: .7
+          flip: y #both
+          
+          show:
+            horseshoe: true
+            scale_tickmarks: false
+            horseshoe_style: colorstopgradient
+            scale_style: fixed #colorstop #fixed
+            labels_at: ticks_major # colorstop, none, ticks_major, both, minmax
+            ticks: true
+            label_badges: true                  
+            label_background: none # none, fixed, colorstop
+          # 
+          horseshoe_scale:
+            min: 0
+            max: 5
+            width: 6
+            color: var(--primary-background-color)
+            ticksize: 0.1 # 5-0 = 5 with 0.1 per tick = 50 ticks.
+            gap: 3
+            type: spline #linear #spline
+            spline:
+              minor_tick_taper: true
+              anchors:
+                - value: 0
+                  position: 0
+                - value: 0.1
+                  position: 0.06
+                - value: 0.5
+                  position: 0.25
+                - value: 1
+                  position: 0.4              
+            styles:
+              - opacity: 0.7
+          #
+          horseshoe_tickmarks:
+            ticks_major:
+              ticksize: 1
+              color_mode: colorstopinterpolated
+              width: 12
+              offset: -9
+              thickness: 1
+              styles:
+                - stroke: var(--primary-text-color);
+                - fill: var(--primary-text-color);
+                - opacity: 0.9;
+            ticks_minor:
+              ticksize: 0.1
+              color_mode: colorstopinterpolated
+              thickness: 1
+              width: 6
+              offset: -12
+              color_filter:
+                grayscale: 0.1
+                lightness:
+                  min: 0.6
+                  max: 0.9
+              styles:
+                - stroke: var(--primary-text-color);
+                - fill: var(--primary-text-color);
+                - opacity: 0.7;
+          #
+          horseshoe_labels:
+            distance_min: 0.3
+            ticksize_min: 0.3
+            orientation: horizontal #arc #horizontal #arc
+            offset: -34
+            badges:
+              radius: 6
+              color: var(--card-background-color)
+              border_color: var(--divider-color)
+              padding: 0
+              height: 10    # 12 is same as font-size of 1em    
+            styles:
+              - font-size: 0.7em
+          #
+          horseshoe_state:
+            width: 12
+            styles:
+              - stroke-linecap: butt
+          #
+          color_stops:
+            gap: 3
+            colors:
+              0: var(--fhs-sys-rainbow-blue)
+              1: var(--fhs-sys-rainbow-green)
+              2: var(--fhs-sys-rainbow-yellow)
+              3: var(--fhs-sys-rainbow-orange)
+              4: var(--fhs-sys-rainbow-red)
+              5: var(--fhs-sys-rainbow-purple)
+        - entity_index: 1
+          same_as: 0
+          same_as_dxpos: calc(dxPos1)
+          show:
+            labels_at: none
+        - entity_index: 2
+          same_as: 1
+          same_as_dxpos: calc(dxPos2)
+        - entity_index: 3
+          same_as: 2
+          same_as_dxpos: calc(dxPos2)

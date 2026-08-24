@@ -1,0 +1,90 @@
+#
+# Template  : thermostat-card-darj-template-mw
+# Card:     : custom:thermostat-card-dark
+# Project   : Home Assistant
+# Repository: https://github.com/AmoebeLabs/Home-Assistant-Config
+#
+# Author    : Mars @ AmoebeLabs.com
+# 
+# License   : CC BY-SA, https://creativecommons.org/licenses/by/4.0/
+#
+# -----
+# Description:
+#   Decluttering template for the thermostat-card.
+#   This template does all the heavy CSS stuff to get the card behave according
+#   to the theme settings depending on the state off, cool or heat.
+#
+#   Styling:
+#   - Sets the theme's border-radius (of course).
+#   - Sets the colors, depending on state, for off-fill, heat-fill and cool-fill
+#   - Sets the active colors too depending on state.
+#   - In case of heat/cool, text, chevrons and thermometer is hard-coded set to white.
+#
+#   Note:
+#   This template uses the Nyx and Hemera themes for settings!!
+#   You can find them in my repository ;-)
+#   
+#   This was a difficult card to theme. It took a lot of time to get the
+#   card behave according to the theme... Blood, sweat and tears!!
+#
+#   References:
+#
+###############################################################################
+
+card:
+  type: 'custom:thermostat-dark-card'
+  # Set styling from theme depending on the thermostat state.
+#    ha-card {
+#      border-radius: var(--theme-border-radius);
+#    }
+  style: |
+    ha-card {
+      box-shadow: var(--theme-card-box-shadow);
+    }  
+    ha-card .dial{
+      --thermostat-text-color: var(--theme-thermostat-text-color);
+      --thermostat-off-fill: var(--theme-thermostat-off-fill);
+      --thermostat-cool-fill: var(--theme-thermostat-cool-fill);
+      --thermostat-heat-fill: var(--theme-thermostat-heat-fill);
+      --thermostat-path-color: var(--theme-thermostat-path-color);
+      --thermostat-path-active-color: var(--theme-thermostat-path-active-color);
+      --thermostat-path-active-color-large: var(--theme-thermostat-path-active-color-large);
+      --thermostat-off-fill: var(--theme-thermostat-off-fill);
+    }
+    ha-card svg.dial.dial--state--off .dial__ticks path {
+      --thermostat-text-color: var(--theme-thermostat-text-color);
+      fill: var(--theme-thermostat-path-color);
+    }
+    ha-card svg.dial.dial--state--cool .dial__ticks path {
+      --thermostat-path-color: rgba(255,255,255,0.5);
+      fill: rgba(255,255,255,0.5);
+      --thermostat-text-color: white;
+    }
+    ha-card svg.dial.dial--state--heat .dial__ticks path {
+      --thermostat-path-color: rgba(255,255,255,0.5);
+      fill: rgba(255,255,255,0.5);
+      --thermostat-text-color: white;
+    }
+    ha-card .dial.dial--state--heat text, .dial.dial--state--heat text tspan, .dial.dial--state--cool text, .dial.dial--state--cool text tspan {
+      fill: white;
+    }
+    ha-card svg.dial.dial--state--heat .dial__chevron, svg.dial.dial--state--cool .dial__chevron {
+      stroke: white;
+    }
+    ha-card svg.dial.dial--state--off .dial__chevron {
+      stroke: var(--theme-thermostat-text-color);
+    }
+    ha-card .dial.dial--state--off .dial__ico__thermo {
+      fill: var(--thermostat-path-active-color);
+    }
+    ha-card .dial.dial--state--heat .dial__ico__thermo, .dial.dial--state--cool .dial__ico__thermo {
+      fill: white;
+    }
+
+  entity: climate.[[entity]]
+  hvac:
+    states:
+      "Off": "off"
+      "Heating": "heat"
+  min_temp: 16
+  max_temp: 23    

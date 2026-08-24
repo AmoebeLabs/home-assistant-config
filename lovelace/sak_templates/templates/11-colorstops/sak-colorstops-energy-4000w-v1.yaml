@@ -1,0 +1,22 @@
+sak_colorstops_energy_4000w_v1:
+  template:
+    type: colorstops
+    defaults:
+      - thegap: 0
+      - theFill: true
+      - theStroke: false
+  colorstops:
+    gap: '[[thegap]]'
+    fill: '[[theFill]]'
+    stroke: '[[theStroke]]'
+    colors:
+      0: 'darkgreen'
+      150: 'green'
+      300: '#FFE37F'  # Yasmine
+      500: '#FCC449'  # Saffron
+      1000: '#F79F23'  # Orange Peel
+      1500: '#EF7F01'  # Tangerine
+      2000: '#E73F10'  # Cinnabar
+      2500: '#BB1B1B'  # Cornell Red
+      3000: '#980C0C'  # Pennu Red
+      4000: '#7B0002'  # Barn Red  

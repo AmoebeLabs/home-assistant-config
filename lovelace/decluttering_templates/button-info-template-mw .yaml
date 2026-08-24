@@ -1,0 +1,166 @@
+###
+# template  : button-info-template
+# card      : custom:button-card
+#
+# Used for info cards that only display information and can't be toggled
+#
+
+default:
+  - size: 40%
+  - lock: false
+  - color: auto
+  - spin: false
+  - show_state: true
+  - show_label: true
+  - show_last_changed: false;
+  - ttap_action: more-info
+  - hhold_action: none
+  - aspect_ratio: 1/1
+  - area: ""
+
+card:
+  type: custom:button-card
+#  name: '[[entity]]'.area_id 
+  name: '[[name]]'
+  deep_press: false
+  icon: 'mdi:[[icon]]'
+  size: '[[size]]'
+  color: '[[color]]'
+  lock: '[[lock]]'
+  aspect_ratio: '[[aspect_ratio]]'
+  entity: '[[entity]]'
+#  label_template: >
+#    var bri = Math.round(entity.attributes.brightness / 2.55);
+#    return (bri ? bri : '0') + '%';
+  show_state: '[[show_state]]'
+  show_label: '[[show_label]]'
+  show_last_changed: '[[show_last_changed]]'
+  tap_action:
+    action: more-info #'[[ttap_action]]'
+    haptic: light
+  hold_action:
+    action: none #'[[hhold_action]]'
+    haptic: heavy
+  styles:
+    card:
+    grid:
+      - grid-template-areas: '"i i" "n n" "area area" "s l"'
+      - grid-template-columns: 1fr lfr
+      - grid-template-rows: 1fr min-content min-content min-content
+    img_cell:
+      - align-self: start
+      - text-align: start
+      - margin-right: 0px #60px, 0px is centered icon 
+    name:
+      - font-family: Helvetica 
+      - font-size: 13px
+      - font-weight: bold
+      - text-transform: capitalize
+      - justify-self: start
+      - padding-left: 10px
+    custom_fields:
+      area:
+        - font-family: Helvetica 
+        - font-size: 13px
+        - text-transform: capitalize
+        - justify-self: start
+        - padding-left: 10px
+    state:
+      - font-family: Helvetica
+      - font-size: 12px
+      - font-weight: bold
+      - text-transform: capitalize
+      - padding: 0px 10px
+      - justify-self: start
+      - padding-left: 10px
+    label:
+      - font-family: Helvetica
+      - font-size: 12px
+      - font-weight: bold
+      - padding: 0px 10px
+      - justify-self: start
+
+  custom_fields:
+    area: '[[area]]'
+
+  #state: >
+  #  [[[
+  #    if (typeof(entity) === 'undefined') return 'undefined';
+  #    return entity.state.state;
+  #  ]]]
+  
+#  label: >
+#    [[[
+#      if (typeof(entity) === 'undefined') return;
+#      
+#      if ('brightness' in entity.attributes)
+#      {
+#        if (entity.attributes
+#        && (entity.attributes.brightness <= 255)) {
+#          var bri = Math.round(entity.attributes.brightness / 2.55);
+#          return (bri ? bri : '0') + '%';
+#        }
+#      }
+#    ]]]
+
+  state:
+    - value: "on" 
+      spin: '[[spin]]'  
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-on)
+        name:
+          - color: var(--theme-button-name-color-state-on)
+        state:
+          - color: var(--theme-button-state-color-state-on)
+        lock:
+          - color: var(--theme-button-lock-color-state-on)
+        label:
+          - color: var(--theme-button-label-color-state-on)
+        custom_fields:
+          area:
+            - color: var(--theme-button-area-color-state-on)
+        
+    - value: "off"
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-off)
+        icon:
+          - color: var(--theme-button-icon-color-state-off)
+        name:
+          - color: var(--theme-button-name-color-state-off)
+        state:
+          - color: var(--theme-button-state-color-state-off)
+        lock:
+          - color: var(--theme-button-lock-color-state-off)
+        label:
+          - color: var(--theme-button-label-color-state-off)
+        custom_fields:
+          area:
+            - color: var(--theme-button-area-color-state-off)
+
+    - value: "unavailable"
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-unavailable)
+        icon:
+          - color: var(--theme-button-icon-color-state-unavailable)
+        name:
+          - color: var(--theme-button-name-color-state-unavailable)
+        state:
+          - color: var(--theme-button-state-color-state-unavailable)
+        lock:
+          - color: var(--theme-button-lock-color-state-unavailable)
+
+    - operator: 'default'
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-off)
+        icon:
+          - color: var(--theme-button-icon-color-state-off)
+        name:
+          - color: var(--theme-button-name-color-state-off)
+        state:
+          - color: var(--theme-button-state-color-state-off)
+        lock:
+          - color: var(--theme-button-lock-color-state-off)          

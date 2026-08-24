@@ -1,0 +1,185 @@
+# This is the sparklines view
+#
+title: FHS-sparklines
+path: FHS-sparklines
+panel: false
+type: sections
+max_columns: 2
+
+sections:
+- type: grid
+  title: Multi-series test
+  cards:
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+        - entity: sensor.awair_element_bedroom_temperature
+        - entity: sensor.awair_element_study_temperature
+      template:
+        name: fhs_card_multi_series_test
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+        - entity: sensor.awair_element_bedroom_temperature
+        - entity: sensor.awair_element_study_temperature
+      template:
+        name: fhs_card_multi_series_test_bars
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_temperature
+          name: Study temperature
+          unit: C
+      template:
+        name: fhs_card_multi_series_test_offset
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+          name: Livingroom temperature
+          unit: C
+        - entity: sensor.awair_element_bedroom_temperature
+          name: Bedroom temperature
+          unit: C
+        - entity: sensor.awair_element_study_humidity
+          name: Study humidity
+          unit: '%'
+      template:
+        name: fhs_card_multi_series_dual_axis_fixed
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+          name: Livingroom temperature
+          unit: C
+        - entity: sensor.awair_element_bedroom_temperature
+          name: Bedroom temperature
+          unit: C
+        - entity: sensor.awair_element_study_humidity
+          name: Study humidity
+          unit: '%'
+      template:
+        name: fhs_card_multi_series_dual_axis_auto
+
+
+- type: grid
+  title: Sparkline Min/Avg/Max Awair
+  cards:
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_score
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_awair_score
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_temperature
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_awair_temperature
+          - var_show_chart_type: equalizer
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_humidity
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_awair_humidity
+          - var_show_chart_type: dots
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_carbon_dioxide
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_awair_co2
+          - var_show_chart_type: bar
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_volatile_organic_compounds
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_awair_voc
+          - var_show_chart_type: barcode
+          - var_show_chart_variant: audio
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.awair_element_study_pm2_5
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_awair_pm25
+
+
+- type: grid
+  title: Sparkline Min/Avg/Max Power
+  cards:
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_energy_deliverd_4kw
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_energy_deliverd_4kw
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_energy_deliverd_4kw
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_energy_deliverd_4kw    
+
+- type: grid
+  title: Sparkline Min/Avg/Max Illuminance
+  cards:
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.livingroom_illuminance_front_illuminance
+          name: "Illuminance Front"
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_illuminance    
+
+    - type: custom:flex-horseshoe-card
+      entities:
+        - entity: sensor.livingroom_illuminance_tv_illuminance
+          name: "Illuminance Center"
+      template:
+        name: fhs_card_060_sensor_history_min_avg_max
+        variables:
+          - var_colorstop: fhs_colorstops_illuminance    
+
+#-----------------------------------------------------------------
+- type: grid
+  cards:
+    - type: custom:flex-horseshoe-card
+      template:
+        name: fhs_card_092_sparkline_adial_barcode_showcase

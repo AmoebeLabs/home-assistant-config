@@ -1,0 +1,59 @@
+title: FHS-showcases
+path: FHS-showcases
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+    - type: grid
+      columns: 2
+      square: false
+      cards:
+        - type: custom:flex-horseshoe-card
+          entities:
+            - entity: sensor.awair_element_livingroom_score
+            - entity: sensor.awair_element_livingroom_temperature
+            - entity: sensor.awair_element_livingroom_humidity
+            - entity: sensor.awair_element_livingroom_carbon_dioxide
+            - entity: sensor.awair_element_livingroom_volatile_organic_compounds
+            - entity: sensor.awair_element_livingroom_pm2_5
+
+          template:
+            name: fhs_card_040_awair 
+            
+        # - type: custom:flex-horseshoe-card
+        #   template:
+        #     name: fhs_button_showcase
+
+# showcases 27 en 28
+
+    # - type: horizontal-stack
+    #   cards:
+    #     - type: custom:flex-horseshoe-card
+    #       template:
+    #         name: fhs_showcase_horseshoe
+
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_090_horseshoe_showcase
+
+    # - type: horizontal-stack
+    #   cards:
+    #     - type: custom:flex-horseshoe-card
+    #       template:
+    #         name: fhs_showcase_cartesian_v1
+
+        # - type: custom:flex-horseshoe-card
+        #   template:
+        #     name: fhs_showcase_cartesian_v3
+
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_091_sparkline_cartesian_showcase
+
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_092_sparkline_radial_barcode_showcase
+
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_093_controls_showcase

@@ -1,0 +1,17 @@
+sak_colorstops_awair_score_v1:
+  template:
+    type: colorstops
+    defaults:
+      - thegap: 0
+      - theFill: true
+      - theStroke: false
+  colorstops:
+    gap: '[[thegap]]'
+    fill: '[[theFill]]'
+    stroke: '[[theStroke]]'
+    colors:
+      00: '#7e39d6'
+      19.5: '#e9343d'
+      39.5: '#f98602'
+      59.5: '#fed125'
+      79.5: '#49ce4b'

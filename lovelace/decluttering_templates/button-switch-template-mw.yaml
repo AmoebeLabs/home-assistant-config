@@ -1,0 +1,287 @@
+default:
+  - size: 40%
+  - lock: false
+  - color: auto
+  - variable: spin
+  - spin: false
+  - off_variable: spin
+  - off_spin: false
+  - show_name: true
+  - show_state: true
+  - show_label: true
+  - show_icon: true
+  - show_last_changed: false
+  - tap_action:
+      action: toggle
+      haptic: light
+  - hold_action:
+      action: more-info
+      haptic: heavy
+  - aspect_ratio: 1/1
+  - margin-right: 0px
+  - margin-left: 0px
+  - label: '&nbsp;'
+#  - opacity: 1.0
+#  - opacity: 0.9
+#  - opacity_on: 1.0
+#  - off_icon_color: var(--icon-color-off)
+#  - off_name_color: var(--name-color-off)
+#  - off_state_color: var(--state-color-off)
+#  - off_label_color: var(theme-button-label-color-state-off)
+#  - on_name_color: var(--name-color-on)
+#  - on_state_color: var(--state-color-on)
+#  - on_label_color: var(--label-color-on)
+#  - on_card_color: var(--homekit-card-on)
+  - label_font_size: 11px
+  - label_font_weight: normal
+  - name_font_size: 15px
+  - name_font_weight: bold
+  - justify-self-name: start
+  - padding-left-name: 10px
+  - border-radius: var(--ha-card-border-radius)
+card:
+  type: custom:button-card
+#  style: |
+#    ha-card {
+#      0px 0px 0px 1px wh
+#      border-color: white;
+#    }
+#       var(--divider-color);
+  name: '[[name]]'
+  deep_press: true
+  icon: 'mdi:[[icon]]'
+  size: '[[size]]'
+  color: '[[color]]'
+  lock: '[[lock]]'
+  aspect_ratio: '[[aspect_ratio]]'
+  entity: '[[entity]]'
+  label: '[[label]]'
+  show_name: '[[show_name]]'
+  show_icon: '[[show_icon]]'
+  show_state: '[[show_state]]'
+  show_label: '[[show_label]]'
+  show_last_changed: '[[show_last_changed]]'
+  tap_action: '[[tap_action]]'
+  hold_action: '[[hold_action]]'
+  styles:
+    card:
+      - border-radius: '[[border-radius]]'
+      - --ha-card-background: var(--theme-button-card-color-state-off)
+      - box-shadow: var(--theme-card-box-shadow)
+#      - box-shadow: 0px 0px 0px 1px var(--primary-color)
+    label:
+      - font-size: 12px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+      - color: var(--theme-button-label-color-state-off)
+    state:
+      - font-size: 12px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+      - text-transform: capitalize
+      - font-weight: bold
+      - padding-left: 10px
+      - color: var(--theme-button-state-color-state-off)
+    grid:
+      - grid-template-areas: '"i" "n" "s" "l"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr min-content min-content
+    img_cell:
+      - align-self: start
+      - text-align: start
+      - margin-right: '[[margin-right]]'
+      - margin-left: '[[margin-left]]'
+    name:
+      - color: var(--theme-button-name-color-state-off)
+      - justify-self: '[[justify-self-name]]'
+      - padding-left: '[[padding-left-name]]'
+      - font-weight: '[[name_font_weight]]'
+      - font-family: Helvetica 
+      - font-size: '[[name_font_size]]'
+  state:
+    - value: "menu"
+      '[[variable]]': '[[spin]]'  
+      styles:
+        card:
+#          - --ha-card-background: '[[on_card_color]]'
+          - --ha-card-background: var(--theme-button-card-color-state-menu)
+#          - opacity: '[[opacity_on]]'
+        icon:
+          - color: var(--theme-button-icon-color-state-menu)
+        name:
+          - color: var(--theme-button-name-color-state-menu)
+        lock:
+          - color: var(--theme-button-lock-color-state-menu)
+        label:
+          - color: var(--theme-button-label-color-state-menu)
+        state:
+          - color: var(--theme-button-state-color-state-menu)
+    
+    - value: "on" 
+      '[[variable]]': '[[spin]]'  
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-on)
+#          - --ha-card-background: '[[on_card_color]]'
+#          - opacity: '[[opacity_on]]'
+        icon:
+          - color: var(--theme-button-icon-color-state-on)
+        name:
+          - color: var(--theme-button-name-color-state-on)
+        lock:
+          - color: var(--theme-button-lock-color-state-on)
+        label:
+          - color: var(--theme-button-label-color-state-on)
+        state:
+          - color: var(--theme-button-state-color-state-on)
+
+    - value: "off"
+      '[[off_variable]]': '[[off_spin]]'
+      styles:
+        card:
+#          - opacity: '[[opacity]]'
+        icon:
+          - color: var(--theme-button-icon-color-state-off)
+        name:
+          - color: var(--theme-button-name-color-state-off)
+        state:
+          - color: var(--theme-button-state-color-state-off)
+        label:
+          - color: var(--theme-button-label-color-state-off)
+          - font-size: '[[label_font_size]]'
+          - font-weight: '[[label_font_weight]]'
+        lock:
+          - color: var(--theme-button-lock-color-state-off)
+
+    - value: idle
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-idle)
+        icon:
+          - color: var(--theme-button-icon-color-state-idle)
+        name:
+          - color: var(--theme-button-name-color-state-idle)
+        lock:
+          - color: var(--theme-button-lock-color-state-idle)
+        label:
+          - color: var(--theme-button-label-color-state-idle)
+        state:
+          - color: var(--theme-button-state-color-state-idle)
+
+    - value: "unavailable"
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-unavailable)
+        icon:
+          - color: var(--theme-button-icon-color-state-unavailable)
+        name:
+          - color: var(--theme-button-name-color-state-unavailable)
+        lock:
+          - color: var(--theme-button-lock-color-state-unavailable)
+        label:
+          - color: var(--theme-button-label-color-state-unavailable)
+        state:
+          - color: var(--theme-button-state-color-state-unavailable)
+
+    - value: "disarmed"
+      styles:
+        card:
+#          - opacity: 0.8
+          - --ha-card-background: var(--theme-button-card-color-state-disarmed)
+        icon:
+          - color: var(--theme-button-icon-color-state-disarmed)
+        name:
+          - color: var(--theme-button-name-color-state-disarmed)
+        lock:
+          - color: var(--theme-button-lock-color-state-disarmed)
+        label:
+          - color: var(--theme-button-label-color-state-disarmed)
+        state:
+          - color: var(--theme-button-state-color-state-disarmed)
+          - justify-self: '[[justify-self-name]]'
+          - padding-left: '[[padding-left-name]]'
+          - font-weight: bold
+          - font-family: Helvetica 
+          - font-size: 13px
+
+    - value: "armed_home"
+      icon: "mdi:alert"
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-armed_home)
+        icon:
+          - color: var(--theme-button-icon-color-state-armed_home)
+          - animation: var(--theme-button-icon-animation-state-armed_home)
+        name:
+          - color: var(--theme-button-name-color-state-armed_home)
+        lock:
+          - color: var(--theme-button-lock-color-state-armed_home)
+        label:
+          - color: var(--theme-button-label-color-state-armed_home)
+        state:
+          - color: var(--theme-button-state-color-state-armed_home)
+          - justify-self: '[[justify-self-name]]'
+          - padding-left: '[[padding-left-name]]'
+
+    - value: "armed_away"
+      icon: "mdi:alert"
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-armed_away)
+        icon:
+          - color: var(--theme-button-icon-color-state-armed_away)
+          - animation: var(--theme-button-icon-animation-state-armed_away)
+        name:
+          - color: var(--theme-button-name-color-state-armed_away)
+        lock:
+          - color: var(--theme-button-lock-color-state-armed_away)
+        label:
+          - color: var(--theme-button-label-color-state-armed_away)
+        state:
+          - color: var(--theme-button-state-color-state-armed_away)
+          - justify-self: '[[justify-self-name]]'
+          - padding-left: '[[padding-left-name]]'
+
+    - value: "pending"
+      icon: "mdi:clock-alert-outline"
+      styles:
+        card:
+          - --ha-card-background: var(--theme-button-card-color-state-pending)
+        icon:
+          - color: var(--theme-button-icon-color-state-pending)
+          - animation: var(--theme-button-icon-animation-state-pending)
+        name:
+          - color: var(--theme-button-name-color-state-pending)
+        lock:
+          - color: var(--theme-button-lock-color-state-pending)
+        label:
+          - color: var(--theme-button-label-color-state-pending)
+        state:
+          - color: var(--theme-button-state-color-state-pending)
+          - justify-self: '[[justify-self-name]]'
+          - padding-left: '[[padding-left-name]]'
+
+    - operator: 'default'
+      styles:
+        icon:
+          - color: gray
+
+    - operator: '<'
+      value: 10
+      styles:
+        icon:
+          - color: red
+
+    - operator: '<'
+      value: 25
+      styles:
+        icon:
+          - color: orange
+
+    - operator: '<='
+      value: 100
+      styles:
+        icon:
+          - color: green

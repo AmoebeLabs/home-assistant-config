@@ -1,0 +1,111 @@
+#
+# Template  : mini-graph-card-template-mw
+# Card:     : custom:mini-graph-card
+# Project   : Home Assistant
+# Repository: https://github.com/AmoebeLabs/Home-Assistant-Config
+#
+# Author    : Mars @ AmoebeLabs.com
+# 
+# License   : CC BY-SA, https://creativecommons.org/licenses/by/4.0/
+#
+# -----
+# Description:
+#   Decluttering template for the mini-graph-card
+#
+#   Note:
+#   This template uses the Nyx and Hemera themes for settings!!
+#   You can find them in my repository ;-)
+#   
+#   Fonts are still defined in the template. Not in the theme.
+#
+#   References:
+#
+###############################################################################
+
+default:
+  # Sizing comes from the card definition. Not (yet) from the theme...
+  # Default mini-graph-card font_size_header is 1.2em / 400.
+  - font_size_header: 14
+  - font_weight_header: 500
+  - font_size: 75
+  - height: 250
+
+  # Default Card settings.
+  - group: false
+  - animate: true
+  - decimals: 1
+  - hour24: true
+  - icon: '' 
+  - points_per_hour: 1
+  - show:
+      icon: false
+      graph: bar
+      fill: fade
+  - color_thresholds:
+      - value: 0
+        color: var(--theme-gradient-color-03)
+card:
+  type: 'custom:mini-graph-card'
+  # Set styling from theme. Fonts are still hard-coded...
+  style: |
+    ha-card {
+      --primary-background-color: var(--theme-graph-card-color) ;
+      --paper-item-icon-color: var(--theme-graph-icon-color);
+      --primary-text-color: var(--theme-graph-text-color);
+      color: var(--theme-graph-text-color);
+      font-weight: bold ;
+      font-family: Helvetica ;
+      box-shadow: var(--theme-card-box-shadow);
+      letter-spacing: 0.1em;
+    }
+    .graph__container {
+      margin: 0px 10px 10px 10px;
+    }
+    .info {
+      order: 1;
+    }
+    .states {
+      order: 3;
+    }
+    .header {
+      order: 4;
+      align-self: center;
+    }
+    .info__item__type, .info__item__time {
+      display: none;
+    }
+    .info__item:first-child .info__item__value {
+      display: none;
+    }
+    .graph {
+      order: 2;
+      align-self: flex-start;
+      display: inherit;
+    }
+    
+#    ha-card .state__value {
+#      display: none;
+#    }
+
+
+  entities: 
+    - sensor.[[entity]]
+  font_size_header: '[[font_size_header]]'
+  font_size: '[[font_size]]'
+  height: '[[height]]'
+  
+#  align_header: 'right'
+  align_state: 'center'
+#  align_icon: 'left'
+  color_thresholds_transition: 'smooth'
+  animate: '[[animate]]'
+  decimals: '[[decimals]]'
+  hour24: '[[hour24]]'
+  icon: '[[icon]]'
+  line_color: 'var(--theme-default-graph-color)'
+  #'[[line_color]]'
+  name: '[[name]]'
+  points_per_hour: '[[points_per_hour]]'
+  show: '[[show]]'
+  group: '[[group]]'
+  color_thresholds: '[[color_thresholds]]'

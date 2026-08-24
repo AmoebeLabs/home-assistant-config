@@ -1,0 +1,87 @@
+#
+# Template  : header-template-mw
+# Card:     : markdown
+# Project   : Home Assistant
+# Repository: https://github.com/AmoebeLabs/Home-Assistant-Config
+#
+# Author    : Mars @ AmoebeLabs.com
+# 
+# License   : CC BY-SA, https://creativecommons.org/licenses/by/4.0/
+#
+# -----
+# Description:
+#   Decluttering template for the standard markdown card.
+#   Does some formatting and styling.
+#
+#   Styling:
+#   - No shadows for a header
+#   - left padding to align with all the other cards (5px, hard-coded)
+#   - Text to uppercase
+#   - Fully transparent background
+#   - Optional font color
+#
+#   Note:
+#   This template uses the Nyx and Hemera themes for settings!!
+#   You can find them in my repository ;-)
+#   
+#   References:
+#
+###############################################################################
+
+default:
+  - font_color: var(--primary-text-color)
+card:
+  type: markdown
+  style: |
+    ha-card {
+      box-shadow: none;
+      background: rgba(0,0,0,0.0);
+      max-height: 30px;
+      margin: 5px -5px 5px 0px;
+      text-transform: uppercase;
+      color: [[font_color]];
+    }
+    h1,h2,h3,h4 {
+      letter-spacing: 0.25em;
+    }
+    h4{
+        background-image: linear-gradient(90deg, transparent, [[font_color]]);
+        position:relative;
+        display: block;
+        margin:0px 0px;
+        padding:0px 0px;
+    }
+    h4:before,h4:after {
+        content:'';
+        display: inline-block;
+        position:relative;
+        top: 0;
+        right: -20px;
+        width: inherit;
+        height: 100%;
+        background:none;
+        background-position:100% 100%;
+    }
+    h4:before {
+        left:-20px;
+        background-position: 0 100%;
+    }
+#
+# Van hier: http://jsfiddle.net/pavloschris/5Qvn7/
+
+# stond in ha-card:
+#       background-image: linear-gradient(90deg, transparent, var(--secondary-text-color));
+#
+#      
+#      padding: 5px 5px;
+# linear-gradient(90deg, transparent, var(--secondary-text-color))
+#    h4 style {
+#      background-image: linear-gradient(90deg, transparent, var(--secondary-text-color));
+#    }
+#    h4 style="background-image: linear-gradient(90deg, transparent, var(--secondary-text-color)) !important;"
+#    }
+#
+#
+# https://stackoverflow.com/questions/14910608/override-element-style-using-css
+
+  content: '[[content]]'

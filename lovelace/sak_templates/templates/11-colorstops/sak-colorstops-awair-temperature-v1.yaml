@@ -1,0 +1,22 @@
+sak_colorstops_awair_temperature_v1:
+  template:
+    type: colorstops
+    defaults:
+      - thegap: 0
+      - theFill: true
+      - theStroke: false
+  colorstops:
+    gap: '[[thegap]]'
+    fill: '[[theFill]]'
+    stroke: '[[theStroke]]'
+    colors:
+      -1000: '#7e39d6'    # Purple
+      8: '#e9343d'    # Red
+      16: '#f98602'    # Orange
+      18: '#fed125'    # Yellow
+      20: '#49ce4b'    # Green
+      25.001: '#fed125'    # Yellow
+      27.001: '#f98602'    # Orange
+      39.001: '#e9343d'    # Red
+      34.001: '#7e39d6'    # Purple
+  

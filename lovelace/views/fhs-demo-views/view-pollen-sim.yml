@@ -1,0 +1,291 @@
+# This is the sparklines view
+#
+title: FHS-pollen-sim
+path: FHS-pollen-sim
+panel: false
+type: sections
+max_columns: 2
+
+sections:
+- type: grid
+  title: Pollen Simulated with manual input
+  cards:
+    # --------------------------------------------------------------------------------
+    - type: markdown
+      content: |
+        ## Note
+        As these Kleenex Pollen states are "simulated", translations are not available.
+        Therefore you see the raw state in most cards, except when a manual label is set (Very High) on some cards, as the Pollen Integration does not translate the 'very_high' state.
+
+    # --------------------------------------------------------------------------------
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 12
+      entities:
+        - entity: fhs_input_select.demo_trees
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          initial: low
+          scope: global
+          persist: true
+        - entity: fhs_input_select.demo_grass
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          initial: low
+          scope: global
+          persist: true
+        - entity: fhs_input_select.demo_weed
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          initial: low
+          scope: global
+          persist: true
+      aspectratio: 2/0.6
+      constants:
+        xpos_delta: 100
+        select_width: 90
+      layout:
+        controls:
+          - id: trees
+            type: select
+            entity_index: 0
+            orientation: horizontal
+            xpos: 50
+            ypos: 18
+            width: calc(select_width)
+            height: 12
+            option_map:
+              - value: low
+                text: Low
+              - value: moderate
+                text: Moderate
+              - value: high
+                text: High
+              - value: very_high
+                text: Very high
+            label:
+              position: top
+              gap: 7
+              text: Trees
+              styles:
+                font-size: 1.3em
+                text-anchor: middle
+                dominant-baseline: central
+            show:
+              item_variant: segmented
+              item_viz: viz_line
+              item_style: outlined_round
+
+          - id: grass
+            same_as: trees
+            entity_index: 1
+            same_as_dxpos: calc(xpos_delta)
+            label:
+              text: Grass
+          - id: weed
+            same_as: grass
+            entity_index: 2
+            # same_as_dxpos: calc(xpos_delta)
+            xpos: 100
+            same_as_dypos: 30
+            label:
+              text: Weed
+
+    # --------------------------------------------------------------------------------
+    - type: markdown
+      content: |
+        ## Examples with current state active
+        Variations show different use of the *scale* and the *position* of labels. All configurable
+
+    # --------------------------------------------------------------------------------
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 12
+      entities:
+        - entity: fhs_input_select.demo_trees
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          area: ':51:'
+          name: 'Trees'
+        - entity: fhs_input_select.demo_grass
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          name: 'Grass'
+          area: 'Kleenex Pollen'
+        - entity: fhs_input_select.demo_weed
+          name: 'Weed'
+          scope: global
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+
+      template:
+        name: fhs_card_051_horseshoe_pollen
+
+    # --------------------------------------------------------------------------------
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 12
+      entities:
+        - entity: fhs_input_select.demo_trees
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          area: ':52:'
+          name: 'Trees'
+        - entity: fhs_input_select.demo_grass
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          name: 'Grass'
+          area: 'Kleenex Pollen'
+        - entity: fhs_input_select.demo_weed
+          name: 'Weed'
+          scope: global
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+
+      template:
+        name: fhs_card_052_horseshoe_pollen
+- type: grid
+  cards:
+    - type: markdown
+      content: |
+        ## Examples with state as progress bar
+        Variations show different use of the *scale*, *position* of labels, filled inside and *starting* position of the horseshoe.
+        All settings are configurable in YAML.
+
+    # --------------------------------------------------------------------------------
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 12
+      entities:
+        - entity: fhs_input_select.demo_trees
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          area: ':53:'
+          name: 'Trees'
+        - entity: fhs_input_select.demo_grass
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          name: 'Grass'
+          area: 'Kleenex Pollen'
+        - entity: fhs_input_select.demo_weed
+          name: 'Weed'
+          scope: global
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+
+      template:
+        name: fhs_card_053_horseshoe_pollen
+
+    # --------------------------------------------------------------------------------
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 12
+      entities:
+        - entity: fhs_input_select.demo_trees
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          area: ':54:'
+          name: 'Trees'
+        - entity: fhs_input_select.demo_grass
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          name: 'Grass'
+          area: 'Kleenex Pollen'
+        - entity: fhs_input_select.demo_weed
+          name: 'Weed'
+          scope: global
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+
+      template:
+        name: fhs_card_054_horseshoe_pollen
+
+    # --------------------------------------------------------------------------------
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 12
+      entities:
+        - entity: fhs_input_select.demo_trees
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          area: ':55:'
+          name: 'Trees'
+        - entity: fhs_input_select.demo_grass
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+          scope: global
+          name: 'Grass'
+          area: 'Kleenex Pollen'
+        - entity: fhs_input_select.demo_weed
+          name: 'Weed'
+          scope: global
+          options:
+            - low
+            - moderate
+            - high
+            - very_high
+
+      template:
+        name: fhs_card_055_horseshoe_pollen
+
+    # --------------------------------------------------------------------------------

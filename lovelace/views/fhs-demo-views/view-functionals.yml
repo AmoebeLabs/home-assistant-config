@@ -1,0 +1,56 @@
+title: FHS-functionals
+path: FHS-functionals
+panel: false
+cards:
+  - type: vertical-stack
+    cards:
+    # =================================================================================
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:flex-horseshoe-card
+          entities:
+            - entity: sensor.awair_element_study_score
+            - entity: sensor.awair_element_study_temperature
+            - entity: sensor.awair_element_study_humidity
+            - entity: sensor.awair_element_study_carbon_dioxide
+            - entity: sensor.awair_element_study_volatile_organic_compounds
+            - entity: sensor.awair_element_study_pm2_5
+
+          template:
+            name: fhs_card_040_awair
+
+        - type: custom:flex-horseshoe-card
+          entities:
+            - entity: sensor.awair_element_bedroom_score
+            - entity: sensor.awair_element_bedroom_temperature
+            - entity: sensor.awair_element_bedroom_humidity
+            - entity: sensor.awair_element_bedroom_carbon_dioxide
+            - entity: sensor.awair_element_bedroom_volatile_organic_compounds
+            - entity: sensor.awair_element_bedroom_pm2_5
+
+          template:
+            name: fhs_card_040_awair
+
+        - type: custom:flex-horseshoe-card
+          entities:
+            - entity: sensor.awair_element_livingroom_score
+            - entity: sensor.awair_element_livingroom_temperature
+            - entity: sensor.awair_element_livingroom_humidity
+            - entity: sensor.awair_element_livingroom_carbon_dioxide
+            - entity: sensor.awair_element_livingroom_volatile_organic_compounds
+            - entity: sensor.awair_element_livingroom_pm2_5
+
+          template:
+            name: fhs_card_040_awair
+
+    # =================================================================================
+
+    - type: grid
+      columns: 1
+      square: false
+      cards:
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_041_awair_interactive

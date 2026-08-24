@@ -1,0 +1,13 @@
+sak_colorstops_dummy:
+  template:
+    type: colorstops
+    defaults:
+      - dummy: 0
+  colorstops:
+    scales:
+      default:
+        min: 0
+        max: 2500
+    colors:
+      - value: 0
+        color: black
