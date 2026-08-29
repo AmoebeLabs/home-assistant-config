@@ -507,3 +507,20 @@ sections:
           decimals: 2
       template:
         name: fhs_card_035_horseshoe_power
+
+    # Example 36::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':36:'
+      template:
+        name: fhs_card_036_horseshoe_power
+
+        

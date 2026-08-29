@@ -1,0 +1,202 @@
+fhs_card_036_horseshoe_power:
+  template:
+    type: card
+  card:
+    layout:
+      areas:
+        - id: 0
+          entity_index: 0
+          xpos: 0
+          ypos: 100
+          styles:
+            - font-size: 0.75em
+            - text-transform: none     
+            - text-anchor: start                       
+      icons:
+        - id: 0
+          entity_index: 0
+          xpos: 50
+          ypos: 30
+          size: 2
+          color_stops:
+            gap: 3
+            colors:
+              0: 'green'
+              0.4: 'yellow'
+              1: 'orange'
+              3: '#e73f10'
+              5: 'purple'                
+      hlines:
+        - xpos: 50
+          ypos: 50
+          length: 50
+          styles:
+            - stroke: var(--disabled-text-color);
+
+      clips:
+        horseshoe-interior:
+          arcs:
+            - xpos: 50
+              ypos: 50
+              radius: 29
+              arc_degrees: 300
+              rotate: 0
+
+      arcs:
+        - id: background
+          xpos: 50
+          ypos: 50
+          radius: 30
+          arc_degrees: 300
+          color_filter:
+            inherit: false
+          styles:
+            - fill: var(--disabled-text-color)
+            - opacity: 0.3
+
+      sparklines:
+        - id: power-history
+          entity_index: 0
+          xpos: 50
+          ypos: 65
+          width: 60
+          height: 22.5
+          margin: 0
+          clip: horseshoe-interior
+          zpos: calc(zpos.horseshoes - 1)
+
+          period:
+            type: rolling_window
+            rolling_window:
+              duration:
+                hour: 24
+              bins:
+                per_hour: auto
+                density: medium
+
+          sparkline:
+            animate: true
+
+            show:
+              chart_type: area
+              line: true
+              area: true
+              fill: fade
+              points: false
+              grid: false
+              axis: false
+              tickmarks: false
+              labels: false
+
+            state_values:
+              aggregate_func: avg
+            line:
+              line_width: 1
+              show_dots: false
+
+            color_stops:
+              gap: 3
+              colors:
+                0: green
+                0.4: yellow
+                1: orange
+                3: '#e73f10'
+          y_axis:
+            lower_bound: 0
+
+      states:
+        - entity_index: 0
+          xpos: 50
+          ypos: 45
+          styles:
+            - font-size: 2em
+            - font-weight: bold
+
+      names:
+        - id: 0
+          entity_index: 0
+          xpos: 50
+          ypos: 90
+          ellipsis: 20
+          styles:
+            - font-size: 1.4em
+            - text-transform: none
+
+      horseshoes:
+        - entity_index: 0
+          xpos: 50
+          ypos: 50
+          radius: 40
+          tickmarks_radius: 38
+          arc_degrees: 270
+          
+          show:
+            horseshoe: true
+            scale_tickmarks: false
+            horseshoe_style: colorstopgradient
+            scale_style: colorstopgradient #colorstop #fixed
+            labels_at: both # colorstop, none, ticks_major, both, minmax
+            ticks: true
+            label_badges: true                  
+            label_background: fixed # none, fixed, colorstop
+          # 
+          horseshoe_scale:
+            min: 0
+            max: 5
+            width: 6
+            color: var(--secondary-background-color)
+            ticksize: 0.1 # 5-0 = 5 with 0.1 per tick = 50 ticks.
+            gap: 3
+            styles:
+              - opacity: 0.4;
+          #
+          horseshoe_tickmarks:
+            ticks_major:
+              ticksize: 1
+              width: 6
+              offset: -12
+              thickness: 2
+              styles:
+                - stroke: var(--primary-text-color);
+                - fill: var(--primary-text-color);
+                - opacity: 0.7;
+            ticks_minor:
+              ticksize: 0.1
+              thickness: 1
+              width: 3
+              offset: -12
+              styles:
+                - stroke: var(--primary-text-color);
+                - fill: var(--primary-text-color);
+                - opacity: 0.5;
+          #
+          horseshoe_labels:
+            distance_min: 0.3
+            ticksize_min: 0.3
+            orientation: arc #horizontal #arc
+            background:
+              width: 10
+              gap: 3  
+              styles:
+                - opacity: 0.05;
+                - stroke: var(--primary-text-color);
+            badges:
+              radius: 8
+              color: var(--card-background-color)
+              border_color: var(--divider-color)
+              padding: 0
+              height: 10    # 12 is same as font-size of 1em    
+            styles:
+              - font-size: 0.7em
+          #
+          horseshoe_state:
+            width: 12
+          #
+          color_stops:
+            gap: 3
+            colors:
+              0: 'green'
+              0.4: 'yellow'
+              1: 'orange'
+              3: '#e73f10'
+              5: 'purple'
