@@ -4,9 +4,31 @@ title: FHS-sparklines
 path: FHS-sparklines
 panel: false
 type: sections
-max_columns: 2
+max_columns: 3
 
 sections:
+- type: grid
+  title: Tile
+  cards:
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+      template:
+        name: fhs_card_061_sensor_icon_name_state_history
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.awair_element_livingroom_humidity
+      template:
+        name: fhs_card_061_sensor_icon_name_state_history
+        variables:
+          - var_colorstop: fhs_colorstops_awair_humidity
+
+
 - type: grid
   title: Multi-series test
   cards:
@@ -38,10 +60,10 @@ sections:
       entities:
         - entity: sensor.awair_element_livingroom_temperature
           name: Livingroom temperature
-          unit: C
+          # unit: C
         - entity: sensor.awair_element_bedroom_temperature
           name: Bedroom temperature
-          unit: C
+          # unit: C
         - entity: sensor.awair_element_study_humidity
           name: Study humidity
           unit: '%'
@@ -64,65 +86,16 @@ sections:
 
 
 - type: grid
-  title: Sparkline Pollen Graded
-  cards:
-    - type: custom:flex-horseshoe-card
-      entities:
-        - entity: sensor.kleenex_pollen_radar_zoefdehaas_bomen_niveau
-          area: ':53v2:'
-          name: 'Trees'
-        - entity: sensor.kleenex_pollen_radar_zoefdehaas_gras_niveau
-          name: 'Grass'
-          area: 'Kleenex Pollen'
-        - entity: sensor.kleenex_pollen_radar_zoefdehaas_kruiden_niveau
-          name: 'Weed'
-
-      layout:
-        sparklines:
-          - id: pollen-levels
-            entity_index: 0
-            xpos: 50
-            ypos: 50
-            width: 80
-            height: 35
-
-            period:
-              type: rolling_window
-              rolling_window:
-                duration:
-                  hour: 24
-                bins:
-                  per_hour: auto
-                  density: medium
-
-            sparkline:
-              show:
-                chart_type: graded
-              state_values:
-                aggregate_func: last
-              graded:
-                square: false
-              color_stops:
-                colors:
-                  - state: low
-                    color: "#66bb6a"
-                    rank: 0
-                  - state: moderate
-                    color: "#f9a825"
-                    rank: 1
-                  - state: high
-                    color: "#ed8003"
-                    rank: 2
-                  - state: very_high
-                    color: "#d32f2f"
-                    rank: 3
-
-- type: grid
   title: Sparkline Min/Avg/Max Awair
   cards:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.awair_element_study_score
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -131,15 +104,29 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.awair_element_study_temperature
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
           - var_colorstop: fhs_colorstops_awair_temperature
           - var_show_chart_type: equalizer
 
+- type: grid
+  title: Sparkline Min/Avg/Max Awair
+  cards:
+
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.awair_element_study_humidity
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -149,15 +136,29 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.awair_element_study_carbon_dioxide
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
           - var_colorstop: fhs_colorstops_awair_co2
           - var_show_chart_type: bar
 
+- type: grid
+  title: Sparkline Min/Avg/Max Awair
+  cards:
+
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.awair_element_study_volatile_organic_compounds
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -168,11 +169,15 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.awair_element_study_pm2_5
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
           - var_colorstop: fhs_colorstops_awair_pm25
-
 
 - type: grid
   title: Sparkline Min/Avg/Max Power
@@ -180,6 +185,11 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.dsmr_reading_electricity_currently_delivered
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -188,14 +198,29 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
           - var_colorstop: fhs_colorstops_energy_deliverd_4kw
 
+- type: grid
+  title: Sparkline Min/Avg/Max Awair
+  cards:
+
     - type: custom:flex-horseshoe-card
+
       entities:
         - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -204,6 +229,11 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -216,7 +246,12 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.livingroom_illuminance_front_illuminance
-          name: "Illuminance Front"
+          # name: "Illuminance Front"
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:
@@ -225,7 +260,12 @@ sections:
     - type: custom:flex-horseshoe-card
       entities:
         - entity: sensor.livingroom_illuminance_tv_illuminance
-          name: "Illuminance Center"
+          # name: "Illuminance Center"
+          name:
+            - type: area
+            - type: text
+              text: "-"
+            - type: entity 
       template:
         name: fhs_card_060_sensor_history_min_avg_max
         variables:

@@ -5,26 +5,18 @@ path: FHS-horseshoes
 panel: false
 type: sections
 max_columns: 2
+layout: responsive
 
 sections:
 - type: grid
-  title: My First Horseshoes
+  # title: My Horseshoes...
   cards:
-    - type: custom:flex-horseshoe-card
-      grid_options:
-        columns: 6
-      entities:
-        - entity: sensor.awair_element_study_temperature
-
-      layout:
-        horseshoes:
-          - entity_index: 0
-            xpos: 50
-            ypos: 50
-            radius: 45
-            horseshoe_scale:
-              min: 0
-              max: 40
+    # --------------------------------------------------------------------------------
+    # - type: markdown
+    #   content: |
+    #     ## Note
+    #     From a very basic Horseshoe to more advanced cards with horseshoes and sparklines
+    # --------------------------------------------------------------------------------
 
     - type: custom:flex-horseshoe-card
 
@@ -74,10 +66,30 @@ sections:
             styles:
               text-transform: none
 
-- type: grid
-  title: Power Horseshoes 020 - 030
-  cards:
 
+    # Example 36::
+    #
+    #######################################################################
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':36:'
+      template:
+        name: fhs_card_036_horseshoe_power
+
+    # --------------------------------------------------------------------------------
+    # - type: markdown
+    #   content: |
+    #     ## Note
+    #     Horseshoes based on power entities...
+    # --------------------------------------------------------------------------------
+- type: grid
+  cards:
     # Example 20::
     #
     #######################################################################
@@ -148,6 +160,9 @@ sections:
       template:
         name: fhs_card_021_horseshoe_solar
 
+- type: grid
+  cards:
+
     # Example 22::
     #
     #######################################################################
@@ -201,6 +216,9 @@ sections:
       template:
         name: fhs_card_023_horseshoe_power
 
+- type: grid
+  cards:
+
     # Example 24::
     #
     #######################################################################
@@ -251,6 +269,9 @@ sections:
           decimals: 2
       template:
         name: fhs_card_025_horseshoe_power
+
+- type: grid
+  cards:
 
     # Example 26::
     #
@@ -304,60 +325,62 @@ sections:
       template:
         name: fhs_card_027_horseshoe_power
 
-    # Example 28::
-    #
-    #######################################################################
+# - type: grid
+#   cards:
 
-    - type: custom:flex-horseshoe-card
-      grid_options:
-        columns: 6
-      entities:
-        - entity: sensor.dsmr_reading_electricity_currently_delivered
-          decimals: 2
-          name: 'Total'
-          area: ':28v2:'
-        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
-          decimals: 2
-          name: 'L1'
-        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
-          decimals: 2
-          name: 'L2'
-        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
-          decimals: 2
-          name: 'L3'
-        - entity: sensor.dsmr_reading_electricity_currently_delivered
-          decimals: 2
-      template:
-        name: fhs_card_028_horseshoe_power
+#     # Example 28::
+#     #
+#     #######################################################################
 
-    # Example 29::
-    #
-    #######################################################################
+#     - type: custom:flex-horseshoe-card
+#       grid_options:
+#         columns: 6
+#       entities:
+#         - entity: sensor.dsmr_reading_electricity_currently_delivered
+#           decimals: 2
+#           name: 'Total'
+#           area: ':28v2:'
+#         - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+#           decimals: 2
+#           name: 'L1'
+#         - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+#           decimals: 2
+#           name: 'L2'
+#         - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+#           decimals: 2
+#           name: 'L3'
+#         - entity: sensor.dsmr_reading_electricity_currently_delivered
+#           decimals: 2
+#       template:
+#         name: fhs_card_028_horseshoe_power
 
-    - type: custom:flex-horseshoe-card
-      grid_options:
-        columns: 6
-      entities:
-        - entity: sensor.dsmr_reading_electricity_currently_delivered
-          decimals: 2
-          name: 'Total'
-          area: ':29v2:'
-        - entity: sensor.dsmr_reading_phase_currently_delivered_l1
-          decimals: 2
-          name: 'L1'
-        - entity: sensor.dsmr_reading_phase_currently_delivered_l2
-          decimals: 2
-          name: 'L2'
-        - entity: sensor.dsmr_reading_phase_currently_delivered_l3
-          decimals: 2
-          name: 'L3'
-        - entity: sensor.dsmr_reading_electricity_currently_delivered
-          decimals: 2
-      template:
-        name: fhs_card_029_horseshoe_power
+#     # Example 29::
+#     #
+#     #######################################################################
+
+#     - type: custom:flex-horseshoe-card
+#       grid_options:
+#         columns: 6
+#       entities:
+#         - entity: sensor.dsmr_reading_electricity_currently_delivered
+#           decimals: 2
+#           name: 'Total'
+#           area: ':29v2:'
+#         - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+#           decimals: 2
+#           name: 'L1'
+#         - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+#           decimals: 2
+#           name: 'L2'
+#         - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+#           decimals: 2
+#           name: 'L3'
+#         - entity: sensor.dsmr_reading_electricity_currently_delivered
+#           decimals: 2
+#       template:
+#         name: fhs_card_029_horseshoe_power
 
 - type: grid
-  title: Power Horseshoes 030 -- 040
   cards:
 
     # Example 30::
@@ -407,6 +430,9 @@ sections:
           decimals: 2
       template:
         name: fhs_card_031_horseshoe_power
+
+- type: grid
+  cards:
 
     # Example 32::
     #
@@ -460,6 +486,9 @@ sections:
       template:
         name: fhs_card_033_horseshoe_power
 
+- type: grid
+  cards:
+
     # Example 34::
     #
     #######################################################################
@@ -508,19 +537,5 @@ sections:
       template:
         name: fhs_card_035_horseshoe_power
 
-    # Example 36::
-    #
-    #######################################################################
-
-    - type: custom:flex-horseshoe-card
-      grid_options:
-        columns: 6
-      entities:
-        - entity: sensor.dsmr_reading_electricity_currently_delivered
-          decimals: 2
-          name: 'Total'
-          area: ':36:'
-      template:
-        name: fhs_card_036_horseshoe_power
 
         
