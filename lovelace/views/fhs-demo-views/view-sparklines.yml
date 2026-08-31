@@ -27,7 +27,55 @@ sections:
         name: fhs_card_061_sensor_icon_name_state_history
         variables:
           - var_colorstop: fhs_colorstops_awair_humidity
+- type: grid
+  cards:
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+      template:
+        name: fhs_card_061_sensor_icon_name_state_history
+        variables:
+          - var_chart_type: barcode
+          - var_chart_variant: stalagmites
 
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.awair_element_livingroom_humidity
+      template:
+        name: fhs_card_061_sensor_icon_name_state_history
+        variables:
+          - var_colorstop: fhs_colorstops_awair_humidity
+          - var_chart_type: barcode
+          - var_chart_variant: stalactites
+
+- type: grid
+  cards:
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.awair_element_livingroom_temperature
+      template:
+        name: fhs_card_062_sensor_icon_name_state_history
+        variables:
+          - var_chart_type: barcode
+          - var_chart_variant: stalagmites
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.awair_element_livingroom_humidity
+      template:
+        name: fhs_card_062_sensor_icon_name_state_history
+        variables:
+          - var_colorstop: fhs_colorstops_awair_humidity
+          - var_chart_type: barcode
+          - var_chart_variant: stalactites
 
 - type: grid
   title: Multi-series test
