@@ -1,0 +1,219 @@
+#
+# Expected Entities:
+# - Single sensor
+#
+fhs_card_037_horseshoe_sensor:
+  template:
+    type: card
+    defaults:
+      - var_show_chart: area
+      - var_show_minmax: false
+      - var_colorstop_template: fhs_colorstops_energy_deliverd_4kw
+  card:
+    constants:
+      horseshoe_radius: 29
+    layout:
+      areas:
+        - id: 0
+          entity_index: 0
+          xpos: 0
+          ypos: 100
+          styles:
+            - font-size: 0.75em
+            - text-transform: none     
+            - text-anchor: start                       
+      icons:
+        - id: 0
+          entity_index: 0
+          xpos: 50
+          ypos: 35.5
+          size: 1.5
+          show:
+            item_style: colorstopinterpolated
+          color_stops:
+            template:
+              name: '[[var_colorstop_template]]'
+
+      clips:
+        horseshoe-interior:
+          arcs:
+            - xpos: 50
+              ypos: 50
+              radius: calc(horseshoe_radius - 5)
+              arc_degrees: 300
+              rotate: 0
+
+      arcs:
+        - id: background
+          xpos: 50
+          ypos: 50
+          radius: calc(horseshoe_radius - 5)
+          arc_degrees: 300
+          color_filter:
+            inherit: false
+          styles:
+            - fill: none
+            # - fill: var(--disabled-text-color)
+            - stroke: var(--disabled-text-color)
+            - stroke-width: 0.5
+            - opacity: 0.3
+
+      sparklines:
+        - id: power-history
+          entity_index: 0
+          xpos: 50
+          ypos: 61 #65
+          width: calc(horseshoe_radius * 1.5)
+          height: 18
+          margin: 0
+          clip: horseshoe-interior
+          zpos: calc(zpos.horseshoes - 1)
+
+          period:
+            type: calendar
+            calendar:
+              duration:
+                hour: 24
+              bins:
+                per_hour: auto
+                density: medium
+
+          sparkline:
+            animate: true
+
+            show:
+              chart_type: '[[var_show_chart]]'
+              line: true
+              area: true
+              fill: fade
+              points: false
+              grid: false
+              axis: false
+              tickmarks: false
+              labels: false
+
+            state_values:
+              aggregate_func: avg
+            line:
+              line_width: 1
+              show_dots: false
+              show_minmax: '[[var_show_minmax]]'
+
+            area:
+              show_minmax: '[[var_show_minmax]]'
+            color_stops:
+              template:
+                name: '[[var_colorstop_template]]'
+
+          y_axis:
+            lower_bound: 0
+
+        - id: radial-showcase
+          entity_index: 0
+          xpos: 50
+          ypos: 50
+          width: 100
+          height: 100
+          margin: 0
+
+          period:
+            type: calendar
+            calendar:
+              offset: -1
+              duration:
+                hour: 144
+              bins:
+                per_hour: auto
+                density: medium
+
+          sparkline:
+            show:
+              chart_type: radial
+              chart_variant: '[[var_show_chart]]'
+              background: true
+              legend: false
+              grid: true
+              tickmarks: true
+              line: true
+              area: true
+              fill: fade
+              labels:
+                x: true
+                y: false
+
+            line:
+              show_minmax: '[[var_show_minmax]]'
+            area:
+              show_minmax: '[[var_show_minmax]]'
+
+            radial:
+              arc_degrees: 270
+              rotate: -135
+              size: 10
+              background:
+                styles:
+                  fill: var(--secondary-background-color)
+                  stroke: var(--divider-color)
+                  stroke-width: 0.5
+                  opacity: 0.3
+            color_stops:
+              template:
+                name: '[[var_colorstop_template]]'
+
+          x_axis:
+            labels:
+              orientation: arc
+              offset: 2
+
+      states:
+        - entity_index: 0
+          xpos: 50
+          ypos: 48
+          styles:
+            - font-size: 1.5em
+            - font-weight: bold
+
+      names:
+        - id: 0
+          entity_index: 0
+          xpos: 50
+          ypos: 90
+          ellipsis: 20
+          styles:
+            - font-size: 1.4em
+            - text-transform: none
+
+      horseshoes:
+        - entity_index: 0
+          xpos: 50
+          ypos: 50
+          radius: calc(horseshoe_radius)
+          tickmarks_radius: calc(horseshoe_radius - 2)
+          arc_degrees: 270
+          
+          show:
+            horseshoe: true
+            scale_tickmarks: false
+            horseshoe_style: colorstopgradient
+            scale_style: colorstopgradient #colorstop #fixed
+            labels_at: none #minmax # colorstop, none, ticks_major, both, minmax
+            tickmarks: false
+            label_badges: false #true                  
+            label_background: none #fixed # none, fixed, colorstop
+          # 
+          horseshoe_scale:
+            # Note:
+            # Scale Min/Max is defined by the color stop!!!
+            width: 6
+            color: var(--secondary-background-color)
+            ticksize: 0.1
+            gap: 3
+            styles:
+              - opacity: 0.4;
+          #
+          horseshoe_state:
+            width: 12
+          #
+          color_stops:
+            template:
+              name: '[[var_colorstop_template]]'

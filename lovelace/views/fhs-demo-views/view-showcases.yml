@@ -57,3 +57,7 @@ cards:
         - type: custom:flex-horseshoe-card
           template:
             name: fhs_card_093_controls_showcase
+
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_094_radial_showcase

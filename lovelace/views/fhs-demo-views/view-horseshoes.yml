@@ -82,6 +82,61 @@ sections:
       template:
         name: fhs_card_036_horseshoe_power
 
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':37:'
+      template:
+        name: fhs_card_037_horseshoe_sensor
+        variables:
+          - var_show_minmax: true
+
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.dsmr_reading_electricity_currently_delivered
+          decimals: 2
+          name: 'Total'
+          area: ':37:'
+      template:
+        name: fhs_card_037_horseshoe_sensor
+        variables:
+          - var_show_minmax: false
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.livingroom_illuminance_front_illuminance
+          name: 'Light Front'
+          area: ':37:'
+      template:
+        name: fhs_card_037_horseshoe_sensor
+        variables:
+          - var_show_minmax: true
+          - var_colorstop_template: fhs_colorstops_illuminance
+
+    - type: custom:flex-horseshoe-card
+      grid_options:
+        columns: 6
+      entities:
+        - entity: sensor.livingroom_illuminance_tv_illuminance
+          name: 'Light TV'
+          area: ':37:'
+      template:
+        name: fhs_card_037_horseshoe_sensor
+        variables:
+          - var_show_minmax: false
+          - var_colorstop_template: fhs_colorstops_illuminance
+
+
     # --------------------------------------------------------------------------------
     # - type: markdown
     #   content: |

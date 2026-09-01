@@ -1,0 +1,264 @@
+fhs_card_037a_horseshoe_power:
+  template:
+    type: card
+  card:
+    constants:
+      horseshoe_radius: 30
+    layout:
+      areas:
+        - id: 0
+          entity_index: 0
+          xpos: 0
+          ypos: 100
+          styles:
+            - font-size: 0.75em
+            - text-transform: none     
+            - text-anchor: start                       
+      icons:
+        - id: 0
+          entity_index: 0
+          xpos: 50
+          ypos: 40
+          size: 1.5
+          color_stops:
+            gap: 3
+            colors:
+              0: 'green'
+              0.4: 'yellow'
+              1: 'orange'
+              3: '#e73f10'
+              5: 'purple'                
+      # hlines:
+      #   - xpos: 50
+      #     ypos: 50
+      #     length: calc(horseshoe_radius * 1.5)
+      #     styles:
+      #       - stroke: var(--disabled-text-color);
+
+      clips:
+        horseshoe-interior:
+          arcs:
+            - xpos: 50
+              ypos: 50
+              radius: calc(horseshoe_radius - 11) #29
+              arc_degrees: 300
+              rotate: 0
+
+      arcs:
+        - id: background
+          xpos: 50
+          ypos: 50
+          radius: calc(horseshoe_radius - 10) #30
+          arc_degrees: 300
+          color_filter:
+            inherit: false
+          styles:
+            - fill: var(--disabled-text-color)
+            - opacity: 0.3
+
+      sparklines:
+        - id: power-history
+          entity_index: 0
+          xpos: 50
+          ypos: 58 #65
+          width: calc(horseshoe_radius) #60
+          height: 20
+          margin: 0
+          clip: horseshoe-interior
+          zpos: calc(zpos.horseshoes - 1)
+
+          period:
+            type: calendar #rolling_window
+            calendar:
+              duration:
+                hour: 24
+              bins:
+                per_hour: auto
+                density: medium
+
+          sparkline:
+            animate: true
+
+            show:
+              chart_type: area
+              line: true
+              area: true
+              fill: fade
+              points: false
+              grid: false
+              axis: false
+              tickmarks: false
+              labels: false
+
+            state_values:
+              aggregate_func: avg
+            line:
+              line_width: 1
+              show_dots: false
+
+            color_stops:
+              gap: 3
+              colors:
+                0: green
+                0.4: yellow
+                1: orange
+                3: '#e73f10'
+          y_axis:
+            lower_bound: 0
+
+        - id: radial-showcase
+          entity_index: 0
+          xpos: 50
+          ypos: 50
+          width: 100
+          height: 100
+          margin: 0
+
+          period:
+            type: calendar
+            calendar:
+              offset: -1
+              duration:
+                hour: 144
+              bins:
+                per_hour: auto
+                density: medium
+
+          sparkline:
+            show:
+              chart_type: radial
+              chart_variant: area
+              background: true
+              legend: false
+              grid: true
+              tickmarks: true
+              line: true
+              area: true
+              fill: fade
+              minmax: true
+              labels:
+                x: true
+                y: false
+
+            radial:
+              arc_degrees: 270
+              rotate: -135
+              size: 10
+              background:
+                styles:
+                  fill: var(--secondary-background-color)
+                  stroke: var(--divider-color)
+                  stroke-width: 0.5
+                  opacity: 0.3
+            color_stops:
+              gap: 3
+              colors:
+                0: 'green'
+                0.4: 'yellow'
+                1: 'orange'
+                3: '#e73f10'
+                5: 'purple'
+          x_axis:
+            labels:
+              orientation: arc
+              offset: 2
+
+      states:
+        - entity_index: 0
+          xpos: 50
+          ypos: 50
+          styles:
+            - font-size: 1.5em
+            - font-weight: bold
+
+      names:
+        - id: 0
+          entity_index: 0
+          xpos: 50
+          ypos: 90
+          ellipsis: 20
+          styles:
+            - font-size: 1.4em
+            - text-transform: none
+
+      horseshoes:
+        - entity_index: 0
+          xpos: 50
+          ypos: 50
+          radius: calc(horseshoe_radius)
+          tickmarks_radius: calc(horseshoe_radius - 2)
+          arc_degrees: 270
+          
+          show:
+            horseshoe: true
+            scale_tickmarks: false
+            horseshoe_style: colorstopgradient
+            scale_style: colorstopgradient #colorstop #fixed
+            labels_at: minmax # colorstop, none, ticks_major, both, minmax
+            tickmarks:
+              major: true
+              minor: false
+            label_badges: true                  
+            label_background: fixed # none, fixed, colorstop
+          # 
+          horseshoe_scale:
+            min: 0
+            max: 5
+            width: 6
+            color: var(--secondary-background-color)
+            ticksize: 0.1 # 5-0 = 5 with 0.1 per tick = 50 ticks.
+            gap: 3
+            styles:
+              - opacity: 0.4;
+          #
+          horseshoe_tickmarks:
+            ticks_major:
+              ticksize: 1
+              width: 6
+              offset: -12
+              thickness: 1
+              styles:
+                - stroke: var(--primary-text-color);
+                - fill: var(--primary-text-color);
+                - opacity: 0.7;
+            ticks_minor:
+              ticksize: 0.1
+              thickness: 1
+              width: 3
+              offset: -12
+              styles:
+                - stroke: var(--primary-text-color);
+                - fill: var(--primary-text-color);
+                - opacity: 0.5;
+          #
+          horseshoe_labels:
+            distance_min: 0.3
+            ticksize_min: 0.3
+            orientation: arc #horizontal #arc
+            offset: -12
+            background:
+              width: 10
+              gap: 3  
+              styles:
+                - opacity: 0.05;
+                - stroke: var(--primary-text-color);
+            badges:
+              radius: 8
+              color: var(--card-background-color)
+              border_color: var(--divider-color)
+              padding: 0
+              height: 10    # 12 is same as font-size of 1em    
+            styles:
+              - font-size: 0.7em
+          #
+          horseshoe_state:
+            width: 12
+          #
+          color_stops:
+            gap: 3
+            colors:
+              0: 'green'
+              0.4: 'yellow'
+              1: 'orange'
+              3: '#e73f10'
+              5: 'purple'
