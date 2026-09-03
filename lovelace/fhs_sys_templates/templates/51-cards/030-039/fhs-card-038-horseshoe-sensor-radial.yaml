@@ -2,7 +2,7 @@
 # Expected Entities:
 # - Single sensor
 #
-fhs_card_037_horseshoe_sensor:
+fhs_card_038_horseshoe_sensor_radial:
   template:
     type: card
     defaults:
@@ -128,49 +128,38 @@ fhs_card_037_horseshoe_sensor:
 
           sparkline:
             show:
-              chart_type: radial
-              chart_variant: '[[var_show_chart]]'
-              # chart_type: radial_barcode
-              # chart_variant: '[[var_show_chart]]'
+              chart_type: radial_barcode
+              # chart_variant: sunburst
+              # chart_viz: rice_grain
               background: true
-              legend: false
               grid: true
               tickmarks: true
-              line: true
-              area: true
-              fill: fade
               labels:
                 x: true
                 y: false
               day_night: true
+            radial_barcode:
+              arc_degrees: 270
+              rotate: -135
+              column_spacing: 0.15
+              size: 5
             day_night:
-              mode: background #band
+              mode: band #background #band
               size: 1
               offset: -1.5 #10
               day:
                 styles:
                   fill: '#888888'
-                  fill-opacity: 0.3
+                  fill-opacity: 1
               night:
                 styles:
-                  fill: '#333333'
-                  fill-opacity: 0.3          
-
+                  fill: '#555555'
+                  fill-opacity: 1            
             line:
               show_minmax: '[[var_show_minmax]]'
             area:
               show_minmax: '[[var_show_minmax]]'
 
-            radial:
-              arc_degrees: 270
-              rotate: -135
-              size: 8
-              background:
-                styles:
-                  fill: var(--secondary-background-color)
-                  stroke: var(--divider-color)
-                  stroke-width: 0.5
-                  opacity: 0.3
             color_stops:
               template:
                 name: '[[var_colorstop_template]]'
@@ -178,7 +167,10 @@ fhs_card_037_horseshoe_sensor:
           x_axis:
             labels:
               orientation: arc
-              offset: 2
+              offset: 3
+              styles:
+                - font-size: 0.75em
+                - text-transform: none
 
       states:
         - entity_index: 0

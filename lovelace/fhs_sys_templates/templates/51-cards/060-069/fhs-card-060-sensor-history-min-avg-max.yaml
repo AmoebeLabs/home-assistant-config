@@ -123,6 +123,7 @@ fhs_card_060_sensor_history_min_avg_max:
               ylabels_at: ticks_major
               fill: fade
               points: false
+              day_night: true
             bar:
               line_width : 0.1  # To prevent two colors around zero y axis
             area:

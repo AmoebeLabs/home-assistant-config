@@ -104,9 +104,9 @@ sections:
         - entity: sensor.dsmr_reading_electricity_currently_delivered
           decimals: 2
           name: 'Total'
-          area: ':37:'
+          area: ':38:'
       template:
-        name: fhs_card_037_horseshoe_sensor
+        name: fhs_card_038_horseshoe_sensor_radial
         variables:
           - var_show_minmax: false
 

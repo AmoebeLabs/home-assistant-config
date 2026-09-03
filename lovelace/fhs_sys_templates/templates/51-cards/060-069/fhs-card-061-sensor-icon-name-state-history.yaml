@@ -4,6 +4,7 @@ fhs_card_061_sensor_icon_name_state_history:
     defaults:
       - var_chart_type: area
       - var_chart_variant: ''
+      - var_show_day_night: true
       - var_colorstop: fhs_colorstops_awair_temperature
   card:
     aspectratio: 1/0.5
@@ -49,6 +50,7 @@ fhs_card_061_sensor_icon_name_state_history:
               line: true
               area: true
               fill: fade
+              day_night: '[[var_show_day_night]]'
             line:
               line_width: 1
             barcode:
