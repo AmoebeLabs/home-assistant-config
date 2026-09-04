@@ -1,12 +1,11 @@
-fhs_card_072_server_grid_4_history:
+fhs_card_070_server_cpu_grid_4:
   template:
     type: card
     defaults:
       - var_colorstop_template: fhs_colorstops_cpu_load
       - var_title: 'CPU Load'
-      - var_show_minmax: false
   card:
-    aspectratio: 1/1.75
+    aspectratio: 1/1
 
     constants:
       grid_height: 35
@@ -48,9 +47,6 @@ fhs_card_072_server_grid_4_history:
         - id: grid-4
           xpos: calc(column_2)
           ypos: calc(row_2)
-        - id: chart
-          xpos: 50
-          ypos: 140
 
       rectangles:
         - id: grid-1
@@ -188,64 +184,4 @@ fhs_card_072_server_grid_4_history:
         - id: grid-4
           group: grid-4
           same_as: grid-3
-          same_as_dentity_index: 1
-
-
-        - id: 4-cpu-graph
-          group: chart
-          xpos: 50
-          ypos: 50
-          width: 90
-          height: 70
-          margin: 1
-          period:
-            type: rolling_window
-            rolling_window:
-              duration:
-                hour: 24
-              bins:
-                per_hour: auto
-                density: medium
-          sparkline:
-            state_values:
-              aggregate_func: avg
-            show:
-              chart_type: line
-              line: true
-              grid: true
-              axis: true
-              tickmarks: true
-              labels: true
-              xlabels_at: ticks_major
-              ylabels_at: ticks_major
-              legend: true
-            line:
-              line_width: 0.5
-              show_minmax: '[var_show_minmax]'
-            legend:
-              position: top
-              rows: 2
-              gap: 5
-              styles:
-                font-size: 1em
-          x_axis:
-            labels:
-              styles:
-                font-size: 1em
-          y_axis:
-            labels:
-              styles:
-                font-size: 1em
-          series:
-            - id: '0'
-              entity_index: 0
-              color: '#4DD0E1'
-            - id: '1'
-              entity_index: 1
-              color: '#66BB6A'
-            - id: '2'
-              entity_index: 2
-              color: '#FFA726'
-            - id: '3'
-              entity_index: 3
-              color: '#AB47BC'
+          same_as_dentity_index: 1            

@@ -1,4 +1,4 @@
-fhs_card_073_server_grid_4_history_realtime:
+fhs_card_073_server_cpu_grid_4:
   template:
     type: card
     defaults:
@@ -23,7 +23,6 @@ fhs_card_073_server_grid_4_history_realtime:
           xpos: 10
           yposc: 10
           size: 2.5
-          icon: mdi:dots-grid
       texts:
         - id: title
           xpos: 20

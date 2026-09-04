@@ -1,4 +1,4 @@
-fhs_card_071_server_history_cpu_32:
+fhs_card_071_server_cpu_history_cpu_32:
   template:
     type: card
     defaults:
