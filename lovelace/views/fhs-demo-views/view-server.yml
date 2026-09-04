@@ -1,25 +1,59 @@
 title: FHS-server
 path: FHS-true
 type: sections
-max_columns: 2
+max_columns: 3
 layout: responsive
 
 sections:
   - type: grid
     title: CPU Load
     cards:
+
       - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
         entities:
           - entity: sensor.domiducus_agent_cpu
-            name:
-              - type: device
-              - type: text
-                text: "-"
-              - type: entity
+            # name:
+            #   - type: device
+            #   - type: text
+            #     text: "-"
+            #   - type: entity
         template:
-          name: fhs_card_060_sensor_history_min_avg_max
+          name: fhs_card_036b_horseshoe_any
           variables:
-            - var_colorstop: fhs_colorstops_cpu_load
+            - var_colorstop_template: fhs_colorstops_cpu_load
+
+# LOAD 3x
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_load_average_1m
+        template:
+          name: fhs_card_036b_horseshoe_any
+          variables:
+            - var_colorstop_template: fhs_colorstops_load_average
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_load_average_5m
+        template:
+          name: fhs_card_036b_horseshoe_any
+          variables:
+            - var_colorstop_template: fhs_colorstops_load_average
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_load_average_15m
+        template:
+          name: fhs_card_036b_horseshoe_any
+          variables:
+            - var_colorstop_template: fhs_colorstops_load_average
 
   - type: grid
     title: My CPU Loads...

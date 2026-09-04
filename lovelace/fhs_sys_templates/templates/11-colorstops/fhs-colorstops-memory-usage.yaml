@@ -1,47 +1,46 @@
-fhs_colorstops_cpu_load:
+fhs_colorstops_memory_usage:
   template:
     type: colorstops
+
   colorstops:
     scales:
       default:
         min: 0
         max: 100
+
     modes:
       dark:
         - value: 0
-          color: '#343A40'
-        - value: 1
           color: '#3B82B6'
-        - value: 2
+        - value: 40
           color: '#2F9CC0'
-        - value: 5
+        - value: 60
           color: '#28B6B0'
-        - value: 10
+        - value: 70
           color: '#36BE88'
-        - value: 25
+        - value: 80
           color: '#72C45A'
-        - value: 50
+        - value: 90
           color: '#B9C84A'
-        - value: 75
+        - value: 95
           color: '#F0A13A'
         - value: 100
           color: '#E0524D'
+
       light:
         - value: 0
-          color: '#E5E7EB'
-        - value: 1
           color: '#B8D7EE'
-        - value: 2
+        - value: 40
           color: '#8CC7E3'
-        - value: 5
+        - value: 60
           color: '#69C9C7'
-        - value: 10
+        - value: 70
           color: '#7BCFA8'
-        - value: 25
+        - value: 80
           color: '#A6D47B'
-        - value: 50
+        - value: 90
           color: '#D3D86A'
-        - value: 75
+        - value: 95
           color: '#F2BB67'
         - value: 100
           color: '#E97870'
