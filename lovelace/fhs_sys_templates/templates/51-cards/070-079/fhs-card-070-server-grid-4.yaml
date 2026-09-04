@@ -1,0 +1,187 @@
+fhs_card_070_server_grid_4:
+  template:
+    type: card
+    defaults:
+      - var_colorstop_template: fhs_colorstops_cpu_load
+      - var_title: 'CPU Load'
+  card:
+    aspectratio: 1/1
+
+    constants:
+      grid_height: 35
+      grid_width: 42.5
+      grid_spacing: 2.5
+      grid_row_height: calc(grid_height + grid_spacing)
+      column_1: calc(50 - (grid_spacing / 2) - (grid_width / 2))
+      column_2: calc(100 - column_1)
+      row_1: 40
+      row_2: calc(row_1 + grid_row_height)
+
+    layout:
+      icons:
+        - entity_index: 0
+          xpos: 10
+          yposc: 10
+          size: 2.5
+          icon: mdi:dots-grid
+      texts:
+        - id: title
+          xpos: 20
+          ypos: 10
+          text: '[[var_title]]'
+          styles:
+            text-anchor: start
+            font-size: 1.5em
+            text-transform: none
+            dominant-baseline: central
+      groups:
+        - id: grid-1
+          xpos: calc(column_1)
+          ypos: calc(row_1)
+        - id: grid-2
+          xpos: calc(column_2)
+          ypos: calc(row_1)
+        - id: grid-3
+          xpos: calc(column_1)
+          ypos: calc(row_2)
+        - id: grid-4
+          xpos: calc(column_2)
+          ypos: calc(row_2)
+
+      rectangles:
+        - id: grid-1
+          group: grid-1
+          xpos: 50
+          ypos: 50
+          width: calc(grid_width)
+          height: calc(grid_height)
+          radius: 2
+          entity_index: 0
+          show:
+            item_style: colorstopinterpolated
+          colorstopinterpolated:
+            fill: true
+            stroke: true
+          color_stops:
+            template:
+              name: fhs_colorstops_cpu_load
+          styles:
+            stroke-width: 1
+            stroke-opacity: 1
+            fill-opacity: 0.7
+            transition: fill 0.5s ease, stroke 0.5s ease              
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1
+
+      names:
+        - id: grid-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 40
+          ellipsis: 10
+          styles:
+            text-anchor: middle
+            font-size: 1.15em # HA: 14px
+            text-transform: none
+            alignment-baseline: central
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1
+      states:
+        - id: grid-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 54
+          ellipsis: 5
+          styles:
+            text-anchor: middle
+            font-size: 1.8em  # HA: 12px
+            font-weight: bold
+            alignment-baseline: central
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1
+
+      sparklines:
+        - id: grid-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 65
+          width: calc(grid_width - 5)
+          height: 1
+          period:
+            type: real_time
+          sparkline:
+            animate: true
+            show:
+              chart_type: bar
+            state_values:
+              aggregate_func: last
+            bar:
+              orientation: horizontal
+              foreground:
+                show:
+                  item_style: fixed
+                color: white
+                styles:
+                  stroke-width: 1
+                  stroke: white
+                  fill: white
+                  fill-opacity: 0.5
+                  rx: 1px
+                  ry: 1px
+              background:
+                show:
+                  item_style: fixed
+                styles:
+                  stroke-width: 0
+                  fill: white
+                  fill-opacity: 0.5
+                  rx: 1px
+                  ry: 1px
+          y_axis:
+            lower_bound: 0
+            upper_bound: 100
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1            

@@ -1,4 +1,4 @@
-fhs_card_070_sensor_grid_4:
+fhs_card_073_server_grid_4_history_realtime:
   template:
     type: card
     defaults:
@@ -88,7 +88,7 @@ fhs_card_070_sensor_grid_4:
           group: grid-1
           entity_index: 0
           xpos: 50
-          ypos: 40
+          ypos: 42
           ellipsis: 10
           styles:
             text-anchor: middle
@@ -112,9 +112,13 @@ fhs_card_070_sensor_grid_4:
           group: grid-1
           entity_index: 0
           xpos: 50
-          ypos: 54
+          ypos: 55
           ellipsis: 5
+          uom:
+            styles:
+              opacity: 1
           styles:
+            fill: white
             text-anchor: middle
             font-size: 1.8em  # HA: 12px
             font-weight: bold
@@ -133,11 +137,56 @@ fhs_card_070_sensor_grid_4:
           same_as_dentity_index: 1
 
       sparklines:
+        - id: graph-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 55
+          width: calc(grid_width - 5)
+          height: 20
+          period:
+            type: rolling_window
+          sparkline:
+            animate: true
+            show:
+              chart_type: line
+            state_values:
+              aggregate_func: avg
+            line:
+              line_width: 0.5
+              show_minmax: true
+              styles:
+                stroke: white
+                opacity: 0.4
+              minmax:
+                styles:
+                  opacity: 0.15
+            area:
+              show_minmax: true
+              color: white
+          y_axis:
+            lower_bound: 0
+            upper_bound: 100
+        - id: graph-2
+          group: grid-2
+          same_as: graph-1
+          same_as_dentity_index: 1
+        - id: graph-3
+          group: grid-3
+          same_as: graph-2
+          same_as_dentity_index: 1
+        - id: graph-4
+          group: grid-4
+          same_as: graph-3
+          same_as_dentity_index: 1
+
+# --------------------------------------------------
+
         - id: grid-1
           group: grid-1
           entity_index: 0
           xpos: 50
-          ypos: 65
+          ypos: 35
           width: calc(grid_width - 5)
           height: 1
           period:
@@ -184,4 +233,4 @@ fhs_card_070_sensor_grid_4:
         - id: grid-4
           group: grid-4
           same_as: grid-3
-          same_as_dentity_index: 1            
+          same_as_dentity_index: 1     

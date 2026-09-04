@@ -42,7 +42,7 @@ sections:
               - type: entity
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
             - var_title: 'P-cores 0-1'
@@ -65,7 +65,7 @@ sections:
               - type: entity
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
             - var_title: 'P-cores 2-3'
@@ -88,7 +88,7 @@ sections:
               - type: entity
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
             - var_title: 'P-cores 4-5'
@@ -111,7 +111,7 @@ sections:
               - type: entity
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
             - var_title: 'P-cores 6-7'
@@ -126,10 +126,10 @@ sections:
           - entity: sensor.domiducus_agent_cpu_20
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
-            - var_title: 'E-cores Cluster 0'
+            - var_title: 'E-core Cluster 0'
 
       - type: custom:flex-horseshoe-card
         grid_options:
@@ -141,10 +141,10 @@ sections:
           - entity: sensor.domiducus_agent_cpu_24
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
-            - var_title: 'E-cores Cluster 1'
+            - var_title: 'E-core Cluster 1'
 
       - type: custom:flex-horseshoe-card
         grid_options:
@@ -156,10 +156,10 @@ sections:
           - entity: sensor.domiducus_agent_cpu_28
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
-            - var_title: 'E-cores Cluster 2'
+            - var_title: 'E-core Cluster 2'
 
       - type: custom:flex-horseshoe-card
         grid_options:
@@ -171,7 +171,343 @@ sections:
           - entity: sensor.domiducus_agent_cpu_32
 
         template:
-          name: fhs_card_070_sensor_grid_4
+          name: fhs_card_070_server_grid_4
           variables:
             - var_colorstop_template: fhs_colorstops_cpu_load
-            - var_title: 'E-cores Cluster 3'
+            - var_title: 'E-core Cluster 3'
+
+
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 12
+        entities:
+          - entity: sensor.domiducus_agent_cpu_25
+          - entity: sensor.domiducus_agent_cpu_26
+          - entity: sensor.domiducus_agent_cpu_27
+          - entity: sensor.domiducus_agent_cpu_28
+          - entity: sensor.domiducus_agent_cpu_29
+          - entity: sensor.domiducus_agent_cpu_30
+          - entity: sensor.domiducus_agent_cpu_31
+          - entity: sensor.domiducus_agent_cpu_32
+
+        template:
+          name: fhs_card_071_server_history_cpu_32
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 3'
+
+    # --------------------------------------------------------------------------------
+
+  - type: grid
+    title: My CPU Loads with small graph...
+    cards:
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_1
+          - entity: sensor.domiducus_agent_cpu_2
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_3
+          - entity: sensor.domiducus_agent_cpu_4
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 0-1'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_5
+          - entity: sensor.domiducus_agent_cpu_6
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_7
+          - entity: sensor.domiducus_agent_cpu_8
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 2-3'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_9
+          - entity: sensor.domiducus_agent_cpu_10
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_11
+          - entity: sensor.domiducus_agent_cpu_12
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 4-5'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_13
+          - entity: sensor.domiducus_agent_cpu_14
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_15
+          - entity: sensor.domiducus_agent_cpu_16
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 6-7'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_17
+          - entity: sensor.domiducus_agent_cpu_18
+          - entity: sensor.domiducus_agent_cpu_19
+          - entity: sensor.domiducus_agent_cpu_20
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 0'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_21
+          - entity: sensor.domiducus_agent_cpu_22
+          - entity: sensor.domiducus_agent_cpu_23
+          - entity: sensor.domiducus_agent_cpu_24
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 1'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_25
+          - entity: sensor.domiducus_agent_cpu_26
+          - entity: sensor.domiducus_agent_cpu_27
+          - entity: sensor.domiducus_agent_cpu_28
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 2'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_29
+          - entity: sensor.domiducus_agent_cpu_30
+          - entity: sensor.domiducus_agent_cpu_31
+          - entity: sensor.domiducus_agent_cpu_32
+
+        template:
+          name: fhs_card_072_server_grid_4_history
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 3'
+
+# ------------------
+
+  - type: grid
+    title: My CPU Loads with background graph...
+    cards:
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_1
+          - entity: sensor.domiducus_agent_cpu_2
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_3
+          - entity: sensor.domiducus_agent_cpu_4
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 0-1'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_5
+          - entity: sensor.domiducus_agent_cpu_6
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_7
+          - entity: sensor.domiducus_agent_cpu_8
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 2-3'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_9
+          - entity: sensor.domiducus_agent_cpu_10
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_11
+          - entity: sensor.domiducus_agent_cpu_12
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 4-5'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_13
+          - entity: sensor.domiducus_agent_cpu_14
+            name:
+              - type: text
+                text: HT
+              - type: entity
+          - entity: sensor.domiducus_agent_cpu_15
+          - entity: sensor.domiducus_agent_cpu_16
+            name:
+              - type: text
+                text: HT
+              - type: entity
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'P-cores 6-7'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_17
+          - entity: sensor.domiducus_agent_cpu_18
+          - entity: sensor.domiducus_agent_cpu_19
+          - entity: sensor.domiducus_agent_cpu_20
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 0'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_21
+          - entity: sensor.domiducus_agent_cpu_22
+          - entity: sensor.domiducus_agent_cpu_23
+          - entity: sensor.domiducus_agent_cpu_24
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 1'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_25
+          - entity: sensor.domiducus_agent_cpu_26
+          - entity: sensor.domiducus_agent_cpu_27
+          - entity: sensor.domiducus_agent_cpu_28
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 2'
+
+      - type: custom:flex-horseshoe-card
+        grid_options:
+          columns: 6
+        entities:
+          - entity: sensor.domiducus_agent_cpu_29
+          - entity: sensor.domiducus_agent_cpu_30
+          - entity: sensor.domiducus_agent_cpu_31
+          - entity: sensor.domiducus_agent_cpu_32
+
+        template:
+          name: fhs_card_073_server_grid_4_history_realtime
+          variables:
+            - var_colorstop_template: fhs_colorstops_cpu_load
+            - var_title: 'E-core Cluster 3'
+
