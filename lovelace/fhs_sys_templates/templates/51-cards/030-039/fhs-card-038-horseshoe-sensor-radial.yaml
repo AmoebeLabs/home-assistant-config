@@ -108,7 +108,7 @@ fhs_card_038_horseshoe_sensor_radial:
           y_axis:
             lower_bound: 0
 
-        - id: radial-showcase
+        - id: max
           entity_index: 0
           xpos: 50
           ypos: 50
@@ -129,8 +129,6 @@ fhs_card_038_horseshoe_sensor_radial:
           sparkline:
             show:
               chart_type: radial_barcode
-              # chart_variant: sunburst
-              # chart_viz: rice_grain
               background: true
               grid: true
               tickmarks: true
@@ -141,8 +139,10 @@ fhs_card_038_horseshoe_sensor_radial:
             radial_barcode:
               arc_degrees: 270
               rotate: -135
-              column_spacing: 0.15
+              column_spacing: -0.01 #0.15
               size: 5
+              styles:
+                opacity: 0.7
             day_night:
               mode: band #background #band
               size: 1
@@ -155,15 +155,9 @@ fhs_card_038_horseshoe_sensor_radial:
                 styles:
                   fill: '#555555'
                   fill-opacity: 1            
-            line:
-              show_minmax: '[[var_show_minmax]]'
-            area:
-              show_minmax: '[[var_show_minmax]]'
-
             color_stops:
               template:
                 name: '[[var_colorstop_template]]'
-
           x_axis:
             labels:
               orientation: arc
@@ -171,7 +165,8 @@ fhs_card_038_horseshoe_sensor_radial:
               styles:
                 - font-size: 0.75em
                 - text-transform: none
-
+          styles:
+            opacity: 0.7
       states:
         - entity_index: 0
           xpos: 50

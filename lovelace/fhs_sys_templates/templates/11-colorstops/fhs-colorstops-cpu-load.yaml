@@ -1,0 +1,47 @@
+fhs_colorstops_cpu_load:
+  template:
+    type: colorstops
+  colorstops:
+    scales:
+      default:
+        min: 0
+        max: 100
+    modes:
+      dark:
+        - value: 0
+          color: '#343A40'
+        - value: 1
+          color: '#3B82B6'
+        - value: 2
+          color: '#2F9CC0'
+        - value: 4
+          color: '#28B6B0'
+        - value: 8
+          color: '#36BE88'
+        - value: 16
+          color: '#72C45A'
+        - value: 32
+          color: '#B9C84A'
+        - value: 64
+          color: '#F0A13A'
+        - value: 100
+          color: '#E0524D'
+      light:
+        - value: 0
+          color: '#E5E7EB'
+        - value: 1
+          color: '#B8D7EE'
+        - value: 2
+          color: '#8CC7E3'
+        - value: 4
+          color: '#69C9C7'
+        - value: 8
+          color: '#7BCFA8'
+        - value: 16
+          color: '#A6D47B'
+        - value: 32
+          color: '#D3D86A'
+        - value: 64
+          color: '#F2BB67'
+        - value: 100
+          color: '#E97870'
