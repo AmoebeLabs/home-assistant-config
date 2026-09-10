@@ -132,7 +132,15 @@ fhs_card_036b_horseshoe_any:
             ticks: true
             label_badges: true                  
             label_background: fixed # none, fixed, colorstop
+
+            state_marker: true
           # 
+          horseshoe_marker:
+            icon: mdi:adjust #mdi:dots-horizontal
+            size: 8
+            styles:
+              fill: black
+          #          
           horseshoe_scale:
             width: 6
             color: var(--secondary-background-color)
@@ -192,6 +200,9 @@ fhs_card_036b_horseshoe_any:
           #
           horseshoe_state:
             width: 12
+            # extra als test voor zwarte marker???? Waarom hier??
+            # styles:
+            #   fill: black
           #
           color_stops:
             template:

@@ -36,6 +36,11 @@ cards:
           template:
             name: fhs_card_090_horseshoe_showcase
 
+
+        - type: custom:flex-horseshoe-card
+          template:
+            name: fhs_card_polygon_horseshoe_v1
+
     # - type: horizontal-stack
     #   cards:
     #     - type: custom:flex-horseshoe-card

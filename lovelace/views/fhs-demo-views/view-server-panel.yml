@@ -1,0 +1,319 @@
+title: FHS-server-panel
+path: FHS-server-panel
+type: custom:grid-layout
+
+layout:
+  grid-template-columns: repeat(8, minmax(0, 1fr))
+  gap: 12px
+
+  mediaquery:
+    "(max-width: 700px)":
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+
+    "(max-width: 1200px)":
+      grid-template-columns: repeat(4, minmax(0, 1fr))
+
+    "(max-width: 1600px)":
+      grid-template-columns: repeat(6, minmax(0, 1fr))
+
+
+cards:
+  - type: custom:mod-card
+    view_layout:
+      grid-column: 1 / -1
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--card-background-color, rgba(255, 255, 255, 0.05));
+          border: 1px solid var(--divider-color, rgba(255, 255, 255, 0.15));
+          border-radius: 16px;
+          padding: 6px;
+        }
+    card:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+
+      layout:
+        grid-template-columns: repeat(8, minmax(0, 1fr))
+        gap: 12px
+        mediaquery:
+          "(max-width: 700px)":
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+
+          "(max-width: 1200px)":
+            grid-template-columns: repeat(4, minmax(0, 1fr))
+
+          "(max-width: 1600px)":
+            grid-template-columns: repeat(6, minmax(0, 1fr))
+
+      cards:
+        - type: heading
+          heading: CPU and Load
+          view_layout:
+            grid-column: 1 / -1
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu
+              # name:
+              #   - type: device
+              #   - type: text
+              #     text: "-"
+              #   - type: entity
+          template:
+            name: fhs_card_036b_horseshoe_any
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+
+      # LOAD 3x
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_load_average_1m
+          template:
+            name: fhs_card_036b_horseshoe_any
+            variables:
+              - var_colorstop_template: fhs_colorstops_load_average
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_load_average_5m
+          template:
+            name: fhs_card_036b_horseshoe_any
+            variables:
+              - var_colorstop_template: fhs_colorstops_load_average
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_load_average_15m
+          template:
+            name: fhs_card_036b_horseshoe_any
+            variables:
+              - var_colorstop_template: fhs_colorstops_load_average
+
+  # =================================================================
+
+  - type: custom:mod-card
+    view_layout:
+      # grid-column: span 14
+      grid-column: 1 / -1
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--card-background-color, rgba(255, 255, 255, 0.05));
+          border: 1px solid var(--divider-color, rgba(255, 255, 255, 0.15));
+          border-radius: 16px;
+          padding: 6px;
+        }
+    card:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+
+      layout:
+        grid-template-columns: repeat(8, minmax(0, 1fr))
+        gap: 12px
+        mediaquery:
+          "(max-width: 700px)":
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+
+          "(max-width: 1200px)":
+            grid-template-columns: repeat(4, minmax(0, 1fr))
+
+          "(max-width: 1600px)":
+            grid-template-columns: repeat(6, minmax(0, 1fr))
+
+      cards:
+        - type: heading
+          heading: CPU cores per cluster
+          view_layout:
+            grid-column: 1 / -1
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_1
+            - entity: sensor.domiducus_agent_cpu_2
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_cpu_3
+            - entity: sensor.domiducus_agent_cpu_4
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_coretemp_core_0_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_0_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_4_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_4_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'P-cores 0-1'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_5
+            - entity: sensor.domiducus_agent_cpu_6
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_cpu_7
+            - entity: sensor.domiducus_agent_cpu_8
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_coretemp_core_8_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_8_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_12_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_12_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'P-cores 2-3'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_9
+            - entity: sensor.domiducus_agent_cpu_10
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_cpu_11
+            - entity: sensor.domiducus_agent_cpu_12
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_coretemp_core_16_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_16_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_20_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_20_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'P-cores 4-5'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_13
+            - entity: sensor.domiducus_agent_cpu_14
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_cpu_15
+            - entity: sensor.domiducus_agent_cpu_16
+              name:
+                - type: text
+                  text: HT
+                - type: entity
+            - entity: sensor.domiducus_agent_coretemp_core_24_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_24_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_28_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_28_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'P-cores 6-7'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_17
+            - entity: sensor.domiducus_agent_cpu_18
+            - entity: sensor.domiducus_agent_cpu_19
+            - entity: sensor.domiducus_agent_cpu_20
+            - entity: sensor.domiducus_agent_coretemp_core_32_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_33_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_34_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_35_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'E-core Cluster 0'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_21
+            - entity: sensor.domiducus_agent_cpu_22
+            - entity: sensor.domiducus_agent_cpu_23
+            - entity: sensor.domiducus_agent_cpu_24
+            - entity: sensor.domiducus_agent_coretemp_core_36_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_37_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_38_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_39_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'E-core Cluster 1'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_25
+            - entity: sensor.domiducus_agent_cpu_26
+            - entity: sensor.domiducus_agent_cpu_27
+            - entity: sensor.domiducus_agent_cpu_28
+            - entity: sensor.domiducus_agent_coretemp_core_40_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_41_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_42_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_43_temperature
+
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'E-core Cluster 2'
+
+        - type: custom:flex-horseshoe-card
+          view_layout:
+            grid-column: span 1
+          entities:
+            - entity: sensor.domiducus_agent_cpu_29
+            - entity: sensor.domiducus_agent_cpu_30
+            - entity: sensor.domiducus_agent_cpu_31
+            - entity: sensor.domiducus_agent_cpu_32
+            - entity: sensor.domiducus_agent_coretemp_core_44_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_45_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_46_temperature
+            - entity: sensor.domiducus_agent_coretemp_core_47_temperature
+          template:
+            name: fhs_card_075_server_cpu_grid_4
+            variables:
+              - var_colorstop_template: fhs_colorstops_cpu_load
+              - var_title: 'E-core Cluster 3'
+

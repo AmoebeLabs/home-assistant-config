@@ -1,0 +1,367 @@
+fhs_card_075_server_cpu_grid_4:
+  template:
+    type: card
+    defaults:
+      - var_colorstop_template: fhs_colorstops_cpu_load
+      - var_title: 'CPU Load'
+  card:
+    aspectratio: 1/1
+
+    constants:
+      grid_height: 35
+      grid_width: 42.5
+      grid_spacing: 4
+      grid_row_height: calc(grid_height + grid_spacing)
+      column_1: calc(50 - (grid_spacing / 2) - (grid_width / 2))
+      column_2: calc(100 - column_1)
+      row_1: 40
+      row_2: calc(row_1 + grid_row_height)
+      theme_mode_filter: |
+        [[[
+          return hass.themes.darkMode
+            ? { brightness: 2 }
+            : { brightness: 0.9 };
+        ]]]
+      path_cw:
+        type: rectangle
+        width: calc(grid_width)
+        height: calc(grid_height)
+        radius: 2
+        start: 0
+        end: 3
+        direction: clockwise
+      path_ccw:
+        type: rectangle
+        width: calc(grid_width)
+        height: calc(grid_height)
+        radius: 2
+        start: 1
+        end: 2
+        direction: counterclockwise
+
+    layout:
+      groups:
+        - id: grid-1
+          xpos: calc(column_1)
+          ypos: calc(row_1)
+        - id: grid-2
+          xpos: calc(column_2)
+          ypos: calc(row_1)
+        - id: grid-3
+          xpos: calc(column_1)
+          ypos: calc(row_2)
+        - id: grid-4
+          xpos: calc(column_2)
+          ypos: calc(row_2)
+
+      icons:
+        - entity_index: 0
+          xpos: 10
+          yposc: 10
+          size: 2.5
+
+        - id: grid-1
+          group: grid-1
+          xpos: calc(50 - grid_width / 2)
+          yposc: 50
+          icon_size: 1.5
+          entity_index: 4
+          color_stops:
+            template:
+              name: fhs_colorstops_cpu_temperature
+        - id: grid-2
+          group: grid-2
+          xpos: calc(50 + grid_width / 2)
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          xpos: calc(50 - grid_width / 2)
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          xpos: calc(50 + grid_width / 2)
+          same_as: grid-3
+          same_as_dentity_index: 1
+
+      circles:
+        - id: grid-1
+          group: grid-1
+          xpos: calc(50 - grid_width / 2)
+          ypos: 50
+          radius: 12
+          entity_index: 4
+          styles:
+            fill: var(--card-background-color) #red
+        - id: grid-2
+          group: grid-2
+          xpos: calc(50 + grid_width / 2)
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          xpos: calc(50 - grid_width / 2)
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          xpos: calc(50 + grid_width / 2)
+          same_as: grid-3
+          same_as_dentity_index: 1
+      texts:
+        - id: title
+          xpos: 20
+          ypos: 10
+          text: '[[var_title]]'
+          styles:
+            text-anchor: start
+            font-size: 1.5em
+            text-transform: none
+            dominant-baseline: central
+
+      rectangles:
+        - id: grid-1
+          group: grid-1
+          xpos: 50
+          ypos: 50
+          width: calc(grid_width)
+          height: calc(grid_height)
+          radius: 2
+          entity_index: 0
+          show:
+            item_style: colorstopinterpolated
+          colorstopinterpolated:
+            fill: true
+            stroke: true
+          color_stops:
+            template:
+              name: fhs_colorstops_cpu_load
+          styles:
+            stroke-width: 3
+            stroke-opacity: 0.8 #0.6
+            fill-opacity: 0.55 #0.4 # was 0.2
+            transition: fill 0.5s ease, stroke 0.5s ease              
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1
+
+      names:
+        - id: grid-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 40
+          ellipsis: 10
+          styles:
+            text-anchor: middle
+            font-size: 1.15em # HA: 14px
+            text-transform: none
+            alignment-baseline: central
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1
+
+      states:
+        - id: grid-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 52
+          ellipsis: 5
+          uom:
+            styles:
+              opacity: 1
+          color_filter: ref(theme_mode_filter)
+          styles:
+            text-anchor: middle
+            font-size: 1.8em  # HA: 12px
+            font-weight: bold
+            alignment-baseline: central
+        - id: grid-2
+          group: grid-2
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1
+
+      sparklines:
+        - id: graph-1
+          group: grid-1
+          entity_index: 0
+          xpos: 50
+          ypos: 55
+          width: calc(grid_width - 5)
+          height: 20
+          period:
+            type: rolling_window
+          sparkline:
+            animate: true
+            show:
+              chart_type: line
+              item_style: colorstopinterpolated
+            state_values:
+              aggregate_func: avg
+            line:
+              line_width: 0.5
+              show:
+                minmax: true
+              color_filter: ref(theme_mode_filter)
+              minmax:
+                styles:
+                  opacity: 0.7
+            color_stops:
+              template:
+                name: fhs_colorstops_cpu_load
+
+          y_axis:
+            lower_bound: 0
+            upper_bound: 100
+        - id: graph-2
+          group: grid-2
+          same_as: graph-1
+          same_as_dentity_index: 1
+        - id: graph-3
+          group: grid-3
+          same_as: graph-2
+          same_as_dentity_index: 1
+        - id: graph-4
+          group: grid-4
+          same_as: graph-3
+          same_as_dentity_index: 1
+
+# --------------------------------------------------
+
+        # - id: grid-1
+        #   group: grid-1
+        #   entity_index: 0
+        #   xpos: 50
+        #   ypos: 35
+        #   width: calc(grid_width - 5)
+        #   height: 1
+        #   period:
+        #     type: real_time
+        #   sparkline:
+        #     animate: true
+        #     show:
+        #       chart_type: bar
+        #     state_values:
+        #       aggregate_func: last
+        #     bar:
+        #       orientation: horizontal
+        #       foreground:
+        #         show:
+        #           item_style: fixed
+        #         color: white
+        #         styles:
+        #           stroke-width: 1
+        #           stroke: white
+        #           fill: white
+        #           fill-opacity: 0.5
+        #           rx: 1px
+        #           ry: 1px
+        #       background:
+        #         show:
+        #           item_style: fixed
+        #         styles:
+        #           stroke-width: 0
+        #           fill: white
+        #           fill-opacity: 0.5
+        #           rx: 1px
+        #           ry: 1px
+        #   y_axis:
+        #     lower_bound: 0
+        #     upper_bound: 100
+        # - id: grid-2
+        #   group: grid-2
+        #   same_as: grid-1
+        #   same_as_dentity_index: 1
+        # - id: grid-3
+        #   group: grid-3
+        #   same_as: grid-2
+        #   same_as_dentity_index: 1
+        # - id: grid-4
+        #   group: grid-4
+        #   same_as: grid-3
+        #   same_as_dentity_index: 1
+
+      horseshoes:
+        - id: grid-1
+          group: grid-1
+          xpos: 50
+          ypos: 50
+
+          entity_index: 0
+
+          path: ref(path_cw)
+            # type: rectangle
+            # width: calc(grid_width)
+            # height: calc(grid_height)
+            # radius: 2
+            # start: 0
+            # end: 3
+            # direction: clockwise
+
+          show:
+            horseshoe: true
+            horseshoe_style: colorstopinterpolated
+            scale_style: none
+            tickmarks: false
+            labels_at: none
+
+          horseshoe_scale:
+            min: 0
+            max: 100
+            width: 0.5
+            color: var(--divider-color)
+
+          horseshoe_state:
+            width: 3
+            linecap: round
+            color_filter: ref(theme_mode_filter)
+
+            styles:
+              opacity: 1
+
+          color_stops:
+            template:
+              name: fhs_colorstops_cpu_load
+        - id: grid-2
+          group: grid-2
+          path: ref(path_ccw)
+          same_as: grid-1
+          same_as_dentity_index: 1
+        - id: grid-3
+          path: ref(path_cw)
+          group: grid-3
+          same_as: grid-2
+          same_as_dentity_index: 1
+        - id: grid-4
+          path: ref(path_ccw)
+          group: grid-4
+          same_as: grid-3
+          same_as_dentity_index: 1

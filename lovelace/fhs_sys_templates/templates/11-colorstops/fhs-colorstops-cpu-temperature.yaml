@@ -1,0 +1,47 @@
+fhs_colorstops_cpu_temperature:
+  template:
+    type: colorstops
+  colorstops:
+    scales:
+      default:
+        min: 0
+        max: 100
+    modes:
+      dark:
+        - value: 0
+          color: '#343A40'
+        - value: 5
+          color: '#3B82B6'
+        - value: 15
+          color: '#2F9CC0'
+        - value: 25
+          color: '#28B6B0'
+        - value: 35
+          color: '#36BE88'
+        - value: 45
+          color: '#72C45A'
+        - value: 55
+          color: '#B9C84A'
+        - value: 65
+          color: '#F0A13A'
+        - value: 75
+          color: '#E0524D'
+      light:
+        - value: 0
+          color: '#343A40'
+        - value: 15
+          color: '#3B82B6'
+        - value: 25
+          color: '#2F9CC0'
+        - value: 35
+          color: '#28B6B0'
+        - value: 45
+          color: '#36BE88'
+        - value: 55
+          color: '#72C45A'
+        - value: 65
+          color: '#B9C84A'
+        - value: 75
+          color: '#F0A13A'
+        - value: 100
+          color: '#E0524D'
