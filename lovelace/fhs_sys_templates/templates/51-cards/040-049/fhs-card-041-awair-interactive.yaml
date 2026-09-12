@@ -636,10 +636,12 @@ fhs_card_041_awair_interactive:
 
                 line:
                   line_width: 1
-                  show_dots: false
+                  show:
+                    dots: false
 
                 area:
-                  show_minmax: true
+                  show:
+                    minmax: true
 
                 color_stops: ref(awair_color_stop)
 

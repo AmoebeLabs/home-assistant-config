@@ -127,7 +127,8 @@ fhs_card_060_sensor_history_min_avg_max:
             bar:
               line_width : 0.1  # To prevent two colors around zero y axis
             area:
-              show_minmax: true
+              show:
+                minmax: true
             dots:
               radius: 1
             equalizer:

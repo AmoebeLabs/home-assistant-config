@@ -96,11 +96,13 @@ fhs_card_037_horseshoe_sensor:
               aggregate_func: avg
             line:
               line_width: 1
-              show_dots: false
-              show_minmax: '[[var_show_minmax]]'
+              show
+                dots: false
+                minmax: '[[var_show_minmax]]'
 
             area:
-              show_minmax: '[[var_show_minmax]]'
+              show:
+                minmax: '[[var_show_minmax]]'
             color_stops:
               template:
                 name: '[[var_colorstop_template]]'
@@ -157,9 +159,11 @@ fhs_card_037_horseshoe_sensor:
                   fill-opacity: 0.3          
 
             line:
-              show_minmax: '[[var_show_minmax]]'
+              show:
+                minmax: '[[var_show_minmax]]'
             area:
-              show_minmax: '[[var_show_minmax]]'
+              show:
+                minmax: '[[var_show_minmax]]'
 
             radial:
               arc_degrees: 270
