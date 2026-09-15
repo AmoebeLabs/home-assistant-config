@@ -27,7 +27,7 @@ fhs_card_037_horseshoe_sensor:
           entity_index: 0
           xpos: 50
           ypos: 35.5
-          size: 1.5
+          icon_size: 1.5
           show:
             item_style: colorstopinterpolated
           color_stops:
@@ -96,7 +96,7 @@ fhs_card_037_horseshoe_sensor:
               aggregate_func: avg
             line:
               line_width: 1
-              show
+              show:
                 dots: false
                 minmax: '[[var_show_minmax]]'
 

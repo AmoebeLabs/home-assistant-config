@@ -5,8 +5,6 @@ fhs_card_075_server_cpu_grid_4:
       - var_colorstop_template: fhs_colorstops_cpu_load
       - var_title: 'CPU Load'
   card:
-    aspectratio: 1/1
-
     constants:
       grid_height: 35
       grid_width: 42.5
@@ -40,6 +38,8 @@ fhs_card_075_server_cpu_grid_4:
         direction: counterclockwise
 
     layout:
+      aspectratio: 1/1
+
       groups:
         - id: grid-1
           xpos: calc(column_1)
@@ -58,7 +58,7 @@ fhs_card_075_server_cpu_grid_4:
         - entity_index: 0
           xpos: 10
           yposc: 10
-          size: 2.5
+          icon_size: 2.5
 
         - id: grid-1
           group: grid-1
@@ -90,7 +90,7 @@ fhs_card_075_server_cpu_grid_4:
           group: grid-1
           xpos: calc(50 - grid_width / 2)
           ypos: 50
-          radius: 12
+          radius_percent: 6
           entity_index: 4
           styles:
             fill: var(--card-background-color) #red

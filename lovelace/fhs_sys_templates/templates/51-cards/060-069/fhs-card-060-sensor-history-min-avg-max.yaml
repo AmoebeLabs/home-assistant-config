@@ -93,7 +93,6 @@ fhs_card_060_sensor_history_min_avg_max:
           width: 90 #85 #80
           height: 37.5 #30
           margin: 0
-          animate: true
           period:
             type: rolling_window #calendar #rolling_window
             rolling_window:

@@ -45,8 +45,9 @@ fhs_card_035_horseshoe_power:
               3: '#e73f10'
               5: 'purple'
 
-      hlines:
-        - xpos: 70
+      lines:
+        - orientation: horizontal
+          xpos: 70
           ypos: 30
           length: 40
           styles:
@@ -56,7 +57,7 @@ fhs_card_035_horseshoe_power:
         - xpos: 50
           ypos: 47
           group: L1
-          radius: 2
+          radius_percent: 1
           styles:
             - fill: var(--primary-text-color);
             - opacity: 0.5;
@@ -67,7 +68,7 @@ fhs_card_035_horseshoe_power:
 
         - ypos: 50
           xpos: -50 #-41 #-36
-          radius: 175
+          radius_percent: calc(175 / 2)
           styles:
             - fill: var(--primary-background-color);
             - opacity: 0.7;
@@ -117,7 +118,7 @@ fhs_card_035_horseshoe_power:
           same_as: 1
           group: L3
 
-      horseshoes_v2:
+      horseshoes:
         - entity_index: 0
           ypos: 50
           xpos: -45

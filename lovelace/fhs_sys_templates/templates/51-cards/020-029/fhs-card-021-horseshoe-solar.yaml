@@ -15,15 +15,15 @@ fhs_card_021_horseshoe_solar:
     show:
       horseshoe_style: autominmax
     layout:
-      horseshoes_v2: legacy
-      hlines:
-        - xpos: 50
+      lines:
+        - orientation: horizontal
+          xpos: 50
           ypos: 40
           length: 70
           styles:
             - stroke: var(--disabled-text-color);
-      vlines:
-        - xpos: 50
+        - orientation: vertical
+          xpos: 50
           ypos: 60
           length: 39
           styles:

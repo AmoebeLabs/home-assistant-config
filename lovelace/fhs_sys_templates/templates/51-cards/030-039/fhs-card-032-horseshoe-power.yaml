@@ -62,7 +62,7 @@ fhs_card_032_horseshoe_power:
           same_as: 2
           same_as_dxpos: calc(dxPos2)
 
-      horseshoes_v2:
+      horseshoes:
         - entity_index: 0
           ypos: 45
           xpos: calc(-radius0 + ypos0)

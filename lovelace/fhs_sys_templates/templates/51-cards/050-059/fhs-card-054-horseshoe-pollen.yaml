@@ -2,7 +2,6 @@ fhs_card_054_horseshoe_pollen:
   template:
     type: card
   card:
-    aspectratio: 3/1.2
     color_filter:
       grayscale: 0.6
       lightness:
@@ -15,6 +14,7 @@ fhs_card_054_horseshoe_pollen:
       dxPos2: 100
 
     layout:
+      aspectratio: 3/1.2
       areas:
         - entity_index: 0
           xpos: 0
@@ -34,7 +34,7 @@ fhs_card_054_horseshoe_pollen:
           entity_index: 0
           xpos: calc(xpos0)
           yposc: 60
-          size: 4.5
+          icon_size: 4.5
           state_map:
             map:
               - state: default
@@ -54,8 +54,9 @@ fhs_card_054_horseshoe_pollen:
           same_as: grass
           same_as_dxpos: calc(dxPos2)
 
-      hlines:
-        - xpos: 150
+      lines:
+        - orientation: horizontal
+          xpos: 150
           ypos: 15
           length: 80
           styles:
@@ -78,7 +79,6 @@ fhs_card_054_horseshoe_pollen:
 
       horseshoes:
         - entity_index: 0
-          debug_state_map: false
           xpos: calc(xpos0)
           ypos: 70
           radius: calc(radius0)
@@ -156,7 +156,6 @@ fhs_card_054_horseshoe_pollen:
           #
           horseshoe_state:
             mode: stringstate_level
-            debug_state_map: false
             width: 33
             linecap: butt
             styles:

@@ -5,8 +5,6 @@ fhs_card_070_server_cpu_grid_4:
       - var_colorstop_template: fhs_colorstops_cpu_load
       - var_title: 'CPU Load'
   card:
-    aspectratio: 1/1
-
     constants:
       grid_height: 35
       grid_width: 42.5
@@ -18,11 +16,12 @@ fhs_card_070_server_cpu_grid_4:
       row_2: calc(row_1 + grid_row_height)
 
     layout:
+      aspectratio: 1/1
       icons:
         - entity_index: 0
           xpos: 10
           yposc: 10
-          size: 2.5
+          icon_size: 2.5
           icon: mdi:dots-grid
       texts:
         - id: title

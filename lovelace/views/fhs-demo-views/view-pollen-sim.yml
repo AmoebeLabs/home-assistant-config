@@ -49,11 +49,11 @@ sections:
           initial: low
           scope: global
           persist: true
-      aspectratio: 2/0.6
       constants:
         xpos_delta: 100
         select_width: 90
       layout:
+        aspectratio: 2/0.6
         controls:
           - id: trees
             type: select

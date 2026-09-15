@@ -19,12 +19,13 @@ fhs_card_036b_horseshoe_any:
           entity_index: 0
           xpos: 50
           ypos: 30
-          size: 2
+          icon_size: 2
           color_stops:
             template:
               name: '[[var_colorstop_template]]'
-      hlines:
-        - xpos: 50
+      lines:
+        - orientation: horizontal
+          xpos: 50
           ypos: 50
           length: 50
           styles:

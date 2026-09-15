@@ -6,13 +6,13 @@ fhs_card_062_sensor_icon_name_state_history:
       - var_chart_variant: ''
       - var_colorstop: fhs_colorstops_awair_temperature
   card:
-    aspectratio: 1/0.25
     layout:
+      aspectratio: 1/0.25
       icons:
         - entity_index: 0
           xpos: 10
           yposc: 12.5
-          size: 2.5
+          icon_size: 2.5
 
       names:
         - entity_index: 0

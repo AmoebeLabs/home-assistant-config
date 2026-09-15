@@ -119,8 +119,6 @@ fhs_card_040_awair:
           width: 10
           height: 20
           entity_index: 1
-          entity_indexes:
-            - entity_index: 1
           period:
             type: real_time
             real_time: true
